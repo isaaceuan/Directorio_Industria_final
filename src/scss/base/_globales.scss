@@ -1,0 +1,154 @@
+body{
+  overflow-x: hidden; 
+  font-family: 'Montserrat', sans-serif;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh !important;
+
+}
+
+.main1{
+  flex: 1 !important;
+}
+
+figcaption {
+  font-size: 14px;
+  font-weight: 600 !important;
+}
+
+h1{
+  font-family: $fuentePrincipal;
+  font-weight: $bold !important;
+}
+
+h2,h3,h4{
+  font-family: $fuentePrincipal;
+  font-weight: $bold !important;
+  isolation: isolate;
+
+
+}
+
+.titulo-seccion{
+  color: $azulPrincipal;
+  font-family: $fuentePrincipal;
+  font-weight: $bold;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+
+
+.btn{
+  font-family: $fuentePrincipal;
+  font-weight: $bold;
+  text-transform: uppercase;
+  border-radius: 40px;
+}
+.btn__aqua{
+  background-color: $aqua !important;
+  color: $azulPrincipal !important;
+  transition: 1s;
+  font-weight: 700 !important;
+  border-radius: 40px !important;
+  &:hover{
+    background-color: $azulComplementario;
+  }
+}
+
+.titulo-formulario {
+  color: $azulPrincipal;
+  font-weight: $bold;
+}
+
+
+.boton-ver-mas{
+  text-decoration: none;
+  padding: 3% 30px;
+  background-color: #04e4c4;
+  color: $azulPrincipal;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row-reverse;
+
+i{
+  margin-right: 8px;
+}
+
+  
+}
+
+
+.boton-enviar-mensaje{
+  text-decoration: none;
+  padding: 3% 30px;
+  background-color: #222f7d;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row-reverse;
+
+  i{
+    margin-right: 8px;
+  }
+}
+
+.boton-ver-mas:hover,.boton-ver-mas-free:hover {
+   background-color: #111841;
+    color: white;
+    transition: .5s all;
+  
+}
+
+
+.boton-ver-mas-free{
+  text-decoration: none;
+  padding: 5% 20px;
+  background-color: #222f7d;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+
+  :hover{
+    background-color: #1b2561;
+    color: white;
+
+  }
+}
+
+.boton-regresar{
+  text-decoration: none;
+  padding: 10px 30px;
+  background-color: #808bc7;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+
+span {
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+
+hr {
+  height: 3px !important;
+  width: 110px !important;
+  margin: auto !important;
+  color: #7fe0c5 !important;
+  margin-bottom: 29px !important;
+  opacity: 1 !important;
+  margin-top: -40px;
+}
+
+.card{
+  flex-direction: row !important;
+}
+
+a.dropdown-toggle {
+  cursor: pointer;
+}

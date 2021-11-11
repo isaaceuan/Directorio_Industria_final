@@ -1,0 +1,259 @@
+.header {
+    background-color: $azulPrincipal;
+    padding: 50px;
+
+    h1{
+        color: #fff;
+        font-weight: $bold;
+        text-align: center;
+    }
+}
+
+.contenedorInfoEmpresa{
+    background-color: #d0dadb;
+    // height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
+}
+
+.contenedorDatos{
+    background: #fff;
+    border-radius: 25px;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    // height: 100vh;
+}
+.cuadroEmpresa{
+    border: 2px #cecece solid;
+    border-radius: 25px;
+    padding: 40px 30px;
+
+    
+
+    .contenedorBoton{
+        text-align: center;
+        margin-top: 14%;
+        padding-bottom: 50px;
+    }
+
+
+.hihgLogic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;    
+    
+    a{
+        text-decoration: none;
+        color: $azulPrincipal;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+}
+
+    .botonContactar{
+        text-decoration: none;
+        color: $azulPrincipal;
+        background: $aqua;
+        font-weight: $bold;
+        padding: 20px 100px;
+        text-align: center;
+        font-size: 1.2em;
+        border-radius: 10px;
+    }
+
+    
+
+    
+}
+.logoEmpresa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logoEmpresa1{
+    width: 500px;
+    height: 500px;
+    
+}
+
+.cuadroEmpresa p{
+    margin-bottom: 7% !important;
+}
+
+h4{
+    color: $azulPrincipal;
+    margin-bottom: 0 !important;
+}
+
+h2{
+    margin-bottom: 8% !important;
+    color: $azulPrincipal;
+}
+
+
+.contenedorImgProducto{
+    display: flex;
+    flex-direction: column;
+
+    img{
+        width: 80px;
+        height: 80px;
+        margin-bottom: 6px;
+        border: 1px gray solid;
+    }
+}
+
+.descripcion {
+    display: flex;
+    flex-direction: row;
+    justify-content:  center;
+    padding-top: 2%;
+
+    h2,h4{
+        margin-bottom: 3% !important;
+        font-weight: $bold;
+        color: $azulPrincipal;
+    }
+
+    p{
+        text-align: justify;
+    }
+
+    .col-5{
+        padding-left: 5%;
+        padding-right: 3%;
+    }
+
+    .col-3{
+    border: 1px grey solid;
+    padding: 1% 1%;
+    border-radius: 15px;
+    margin-right: 4%;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .descripcion{
+        .col-3{
+            border: 1px grey solid;
+                padding: 1% 1%;
+                border-radius: 15px;
+                margin-right: 1%;
+                width: 37%;
+        }
+
+        .col-5{
+            margin-right: 7%;
+        }
+
+    } 
+
+    
+  }
+
+
+
+.img_destacadas{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 350px;
+        margin-top: 50px;
+    
+       
+    
+    }
+    
+}
+
+
+.cont_desc{
+    margin-bottom: 30px;
+}
+
+.redes{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.redes img{
+    width: 50px;
+}
+
+.buscador-info-empresa{
+    margin: auto;
+    width: 34% !important;
+}
+
+
+.empresaTitulo{
+    margin-bottom: 2%;
+}
+
+.iconosCat{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 32px;
+    }
+    a{
+        margin-right: 1%;
+
+    }
+}
+
+
+.darkmode--activated{
+    h1,h2,h4,p{
+        color: #fff;
+    }
+    .seccion-portada {
+        background-color: #1d1d1d;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+    .menu_principal {
+        background-color: #1d1d1d;
+        margin-top: 20px;
+    }
+    .menu_principal .container .nav {
+        text-transform: uppercase;
+        background-color: #1d1d1d;
+        border: none;
+        letter-spacing: .1em;
+        color: #fff !important;
+        font-weight: 800;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 12px;
+        font-size: 15px;
+        flex-direction: row;
+        justify-content: initial;
+
+        
+    }
+    .menu_hl {
+        border-top: 5px solid #3d9F95;
+        background-color: #1d1d1d;
+    }
+    
+    
+}
+

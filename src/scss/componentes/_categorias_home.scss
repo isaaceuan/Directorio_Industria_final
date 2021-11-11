@@ -1,0 +1,41 @@
+.categorias-home{
+  margin-top: 2rem;
+  // display: flex;
+  // justify-content: space-between;
+  h3{
+    margin-bottom: 20px;
+  }
+  .categorias-home__item img{
+    height: 50px;
+  }
+  .iconos_cat{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .titulo_cat{
+    color: #fff;
+  }
+
+  .link_cat{
+    position: relative;
+  }
+}
+/* Invisible texto */
+figcaption {
+  display: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  position: absolute;
+  top: 40px;
+  color: white;
+  width: 350%;
+  left: -45px;
+  text-align: center;
+}
+/* Visible texto */
+a.link_cat:hover > figcaption {
+  display:block;
+  transition: all .5s;
+}

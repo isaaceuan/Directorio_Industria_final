@@ -1,0 +1,74 @@
+.buscador{
+  border-radius: 20px;
+  height: 3rem;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  &:focus{
+    border-color: $aqua;
+    box-shadow: $aqua 0px 0px 5px;
+  }
+}
+
+.busc {
+  border-radius: 20px !important;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+  width: 90%;
+  left: 9%;
+}
+
+.busc-2{
+  left: 5%;
+  top: 103%;
+
+
+}
+
+
+.busc_home {
+  border-radius: 20px !important;
+  position: absolute;
+  top: 75%;
+  z-index: 100;
+  // width: 97%;
+  width: 97%;
+}
+
+.buscador-empresa {
+  border-radius: 20px !important;
+  height: 3rem;
+  width: 90% !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  
+}
+
+
+.busc_cat {
+  border-radius: 20px !important;
+  position: absolute;
+  top: 75%;
+  z-index: 100;
+  width: 97%;
+  text-align: left;
+  // width: 89%;
+    // left: 9%;
+}
+
+
+.busc_empresa {
+  border-radius: 20px !important;
+  position: absolute;
+  top: 75%;
+  z-index: 100;
+  width: 90%;
+  margin-top: 1.5%;
+  text-align: left;
+  left: 8%;
+}
+
+.buscador_ajax{
+  position: relative;
+}
