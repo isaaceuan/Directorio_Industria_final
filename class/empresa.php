@@ -161,7 +161,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
 
   }
 
-  public function guardarDatosEmpresa($nombre,$informacion,$archivoF,$pais,$ciudad)
+  public function guardarDatosEmpresa($nombre,$informacion,$archivoF,$pais,$ciudad,$telConLada)
   {
     // $direccionweb = !empty($direccionweb) ? "'$direccionweb'" : "NULL"; 
     // $catalogourl = !empty($catalogourl) ? "'$catalogourl'" : "NULL"; 
@@ -174,7 +174,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
     '$nombre',
     NULL, 
     NULL, 
-    NULL,
+    '$telConLada',
     NULL,
     '$informacion',
     NULL,

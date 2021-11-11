@@ -33,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // $catalogourl = $_POST["catalogourl"];
     $pais = $_POST["pais"];
     $ciudad = $_POST["ciudad"];
+    $lada = $_POST["lada"];
+    $tel_emp = $_POST["tel_emp"];
+    $telConLada = $lada." ".$tel_emp;
 
     $logotipo = $_FILES["file"]["name"];
     $tmp_name_logotipo = $_FILES["file"]["tmp_name"];
@@ -66,7 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 // $catalogourl,
                                 $logotipo,
                                 $pais,
-                                $ciudad);
+                                $ciudad,
+                                $telConLada);
     
     //obtener el id de la empresa
     $dataEmpresa = json_decode($datosForm -> getEmpresaByNombre());

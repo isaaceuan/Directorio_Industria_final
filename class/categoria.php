@@ -33,7 +33,7 @@ class Categoria extends Empresa
   {
     
     $sql = "SELECT *
-    FROM categorias";
+    FROM categorias WHERE id_cat > 0";
 
     $ejecutar = $this -> conexion_db -> query($sql);
 

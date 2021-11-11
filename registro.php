@@ -208,6 +208,15 @@ $categorias = new Categoria();
             <div class="col-6 mt-2">
               <input type="text" class="form-control" id="ciudad" aria-describedby="emailHelp" placeholder="Ciudad *" name="ciudad">
             </div>
+
+            <div class="col-6 input-group mt-2">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus"></i></span>
+              <input type="number"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxLength="3" class="form-control col-2" id="lada" aria-describedby="emailHelp" placeholder="Lada *" name="lada">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
+              <input type="number" class="form-control col-2" id="tel_e" aria-describedby="emailHelp" placeholder="Teléfono *" name="tel_emp">
+            </div>
+          
+          
           </div>
           </div>
         <!-- <div class="col-6">
@@ -223,7 +232,7 @@ $categorias = new Categoria();
             <input type="text" class="form-control" id="direccionweb" aria-describedby="emailHelp" placeholder="Dirección web" name="direccionweb">
           </div> -->
           <div class="col-6">
-          <textarea class="form-control" id="informacion" placeholder="Información de la empresa *" rows="4" name="informacion"></textarea>
+          <textarea class="form-control" id="informacion" placeholder="Información de la empresa *" rows="6" name="informacion"></textarea>
           </div>
           <!-- <div class="col-6 mt-2">
             <input type="text" class="form-control" id="whatsapp" aria-describedby="WhatsApp" placeholder="WhatsApp" name="whatsapp">
@@ -252,7 +261,7 @@ $categorias = new Categoria();
               <input type="url" class="form-control" id="youtube" aria-describedby="emailHelp" placeholder="Youtube" name="youtube">
             </div> -->
 
-            <label for="exampleInputEmail1" class="form-label mt-4">Datos del representante de al empresa:</label>
+            <label for="exampleInputEmail1" class="form-label mt-4">Datos del representante:</label>
             <div class="col-3 mt-2">
               <input type="text" class="form-control" id="nom-rep" aria-describedby="emailHelp" placeholder="Nombre *" name="nom-rep">
             </div>
@@ -453,8 +462,8 @@ $categorias = new Categoria();
     </div>
     <?php include("./inc/footer.php") ?>
     <script>
-$(document).ready(function(){
 
+$(document).ready(function(){
   
   $(".ocultarcat").hide();
     $(".ocultar").hide();
@@ -470,6 +479,16 @@ $(document).ready(function(){
 
     });
 });
+
+setTimeout(function(){
+$( "a" ).click(function( event ) {
+        $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+    });
+
+ }, 1000);
+
+
+
 </script>
 <script>
     const codAct =  document.getElementById('codAct')
