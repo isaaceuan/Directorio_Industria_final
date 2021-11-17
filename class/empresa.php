@@ -15,6 +15,41 @@ class Empresa extends Conexion{
     parent::__construct();
 
   }
+  public function mandarCorreoContacto($correo,$mensaje){
+
+// echo $correo .'<br>'. $mensaje;
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->CharSet = 'UTF-8';
+    //Luego tenemos que iniciar la validación por SMTP:
+    $mail->SMTPDebug = 0 ;
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->Host = "smtp.hostinger.com"; // A RELLENAR. Aquí pondremos el SMTP a utilizar. Por ej. mail.midominio.com
+    $mail->Username = "isaac@anpr.org.mx"; // A RELLENAR. Email de la cuenta de correo. ej.info@midominio.com La cuenta de correo debe ser creada previamente.
+    $mail->Password = "Sistemas2020"; // A RELLENAR. Aqui pondremos la contraseña de la cuenta de correo
+    $mail->Port = 587;  // Puerto de conexión al servidor de envio.
+    $mail->SMTPSecure =  "tls"  ; // Habilitar el cifrado TLS
+    //cambiar por contenido@congreso@congresoparques.com
+    $mail->setFrom("isaac@anpr.org.mx"); // A RELLENARDesde donde enviamos (Para mostrar). Puede ser el mismo que el email creado previamente.
+    $mail->FromName = "ANPR"." "."Directorio de la industria"; //A RELLENAR Nombre a mostrar del remitente.
+    $mail->addAddress("isaac@anpr.org.mx"); // Esta es la dirección a donde enviamos
+    //Se envía copia oculta a vinculación
+    // $mail->addBCC('vinculacion@anpr.org.mx'); 
+    
+    $mail->IsHTML(true); // El correo se envía como HTML
+    $mail->Subject = "Registro en el directorio"; // Este es el titulo del email.
+    // $mail->msgHTML(file_get_contents('https://anpr.org.mx/informatica/class/templates/basic.html'), __DIR__); // Funciona
+    $body = ("Mensaje del directorio de la industria <br> Correo: ".$correo." <br> Mensaje: ".$mensaje);  //Funciona
+    // $body .= "Aquí continuamos el mensaje";
+    $mail->Body = $body;
+    // Mensaje a enviar.
+    $exito = $mail->Send(); // Envía el correo.
+    if($exito){
+      return true;
+      }else{ 
+        return false;
+      }
+  }
 
   public function iconosCategoriaEmpresa($id){
 
@@ -126,12 +161,12 @@ $ejecutar = $this -> conexion_db -> query($sql);
 
 
 
-    $sql = "SELECT empresa.nombre, prd.nombre_pruducto, empresa.id
+    $sql = "SELECT empresa.nombre, prd.nombre_pruducto, empresa.id ,empresa.miembro
     FROM empresa
     LEFT OUTER JOIN producto as prd ON prd.id_empresa = empresa.id
-    WHERE empresa.nombre LIKE '%$query%'
+    WHERE empresa.miembro =1  
+    AND empresa.nombre LIKE '%$query%'
     OR prd.nombre_pruducto LIKE '%$query%'
-    AND empresa.miembro = 1 
     LIMIT 5
     ";
 
@@ -161,7 +196,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
 
   }
 
-  public function guardarDatosEmpresa($nombre,$informacion,$archivoF,$pais,$ciudad,$telConLada)
+  public function guardarDatosEmpresa($nombre,$informacion,$direccion,$pais,$ciudad,$telConLada)
   {
     // $direccionweb = !empty($direccionweb) ? "'$direccionweb'" : "NULL"; 
     // $catalogourl = !empty($catalogourl) ? "'$catalogourl'" : "NULL"; 
@@ -172,13 +207,13 @@ $ejecutar = $this -> conexion_db -> query($sql);
   $sql = "INSERT INTO empresa
     VALUES (NULL, 
     '$nombre',
-    NULL, 
+    '$direccion', 
     NULL, 
     '$telConLada',
     NULL,
     '$informacion',
     NULL,
-    '$archivoF',
+    NULL,
    NULL,
     NULL,
     '$pais',

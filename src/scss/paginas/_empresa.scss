@@ -15,6 +15,9 @@
     display: flex;
     justify-content: center;
     padding-bottom: 3%;
+    @include para-resolucion(telefono) {    
+        margin-bottom: 20px;
+    }
 }
 
 .contenedorDatos{
@@ -33,6 +36,49 @@
     border: 2px #cecece solid;
     border-radius: 25px;
     padding: 40px 30px;
+    @include para-resolucion(telefono) {    
+        border: none ;
+    }
+    .representante{
+        img{
+            border-radius: 50%;
+            border: 3px $azulPrincipal solid;
+        }
+        @include para-resolucion(escritorio-chico) {  
+            .col-7 {
+               margin-left: 10px ;
+           }  
+       }
+        @include para-resolucion(tablet-grande) {  
+             .col-7 {
+                margin-left: -30px ;
+            }  
+        }
+        @include para-resolucion(tablet-normal) {  
+            .col-7 {
+               margin-left: 0 ;
+           }  
+       }
+
+        @include para-resolucion(telefono) {    
+        
+            .col-7 {
+                margin-left: 8% ;
+                width: 70%;
+            }
+        }
+        
+    }
+    p.mb-0{
+        margin-bottom: 0 !important;
+        font-weight: bold !important;
+    }
+
+    .col-7 p{
+        font-weight: 500;
+        margin-bottom: 0 !important;
+
+    }
 
     
 
@@ -68,7 +114,19 @@
         border-radius: 10px;
     }
 
+    @include para-resolucion(tablet-grande) {  
+        margin-top: 30px;  
+    }
+
+    @include para-resolucion(tablet-normal) {    
     
+     margin-top: 40px;
+    }
+    @include para-resolucion(telefono) {    
+        padding: 16px 15px;
+
+    }
+
 
     
 }
@@ -78,11 +136,23 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @include para-resolucion(telefono) {    
+        justify-content: center;
+
+        
+    }
 }
 .logoEmpresa1{
     width: 500px;
     height: 500px;
+
+    @include para-resolucion(telefono) {    
+        width: 300px;
+    height: 300px;
+        
     
+}
 }
 
 .cuadroEmpresa p{
@@ -109,14 +179,127 @@ h2{
         height: 80px;
         margin-bottom: 6px;
         border: 1px gray solid;
+        
+    }
+
+    @include para-resolucion(telefono) {
+        margin-left: 6px;    
+        flex-direction: row;
+        a{
+            margin-right: 6px;
+        }
+
+        img{
+            width: 35px;
+            height:35px;
+    
+            
+        }
+    
+}
+
+
+}
+.iconosCat{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    img{
+        width: 32px;
+        @include para-resolucion(telefono) {
+            width: 22px;
+ 
+        }
+    }
+    a{
+        margin-right: 2%;
+        margin-bottom: 10px;
+
     }
 }
 
+
+.video-responsive{
+    width:100%;
+    height:400px;
+    @include para-resolucion(telefono) {
+        height:200px;
+
+    }
+
+    iframe{
+        width:100%;
+        height:100%;
+       
+    }
+}
 .descripcion {
     display: flex;
     flex-direction: row;
     justify-content:  center;
     padding-top: 2%;
+    flex-wrap: wrap;
+
+    .col-xl-5{
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    @include para-resolucion(escritorio-mediano) {    
+            .cont_img{
+                border: none;
+                    padding: 1% 1%;
+                    border-radius: 15px;
+                    margin-right: 1%;
+                    width: 37%;
+            }
+    
+            .col-xl-5{
+                margin-right: 7%;
+            }
+
+            .cont_img{
+                width: 35% !important;
+
+            }
+    
+        
+    
+    }
+    
+
+    @include para-resolucion(tablet-normal) { 
+        .cont_img{
+            width: 80% !important;
+            text-align: center;
+
+           
+
+        }
+
+        @include para-resolucion(telefono) { 
+
+            .cont_img{
+                width: 95% !important;
+    
+               .descripcion_producto{
+                padding: 3% 1% !important;
+               }
+    
+            }
+
+
+        }
+        .col-xl-5{
+            margin-right: 0;
+            padding-left: 9% ;
+            padding-right: 9% ;
+        }
+    }   
+
 
     h2,h4{
         margin-bottom: 3% !important;
@@ -128,37 +311,85 @@ h2{
         text-align: justify;
     }
 
-    .col-5{
-        padding-left: 5%;
-        padding-right: 3%;
+    
+
+    .cont_img{
+    border: none;
+    margin-right: 0;
+    width: 20% ;
+    .descripcion_producto{
+       border: 1px grey solid;
+       border-radius: 15px;
+       padding: 1% 1%;
+
+       @include para-resolucion(telefono) { 
+       border: none;
     }
 
-    .col-3{
-    border: 1px grey solid;
-    padding: 1% 1%;
-    border-radius: 15px;
-    margin-right: 4%;
+    }
     }
 }
 
-@media only screen and (max-width: 1500px) {
-    .descripcion{
-        .col-3{
-            border: 1px grey solid;
-                padding: 1% 1%;
-                border-radius: 15px;
-                margin-right: 1%;
-                width: 37%;
-        }
+.botonCatalogo {
+    background: #222f7d;
+    color: #fff;
+    padding: 13px 46px;
+    border-radius: 30px;
+    font-size: 18px;
+}
 
-        .col-5{
-            margin-right: 7%;
-        }
+.botonEnviarEmpresa {
+    background: #7fe0c5 !important;
+    border: none !important;
+    color: #222f7d !important;
+    font-weight: 700 !important;
+    border-radius: 15px !important;
+    padding: 5px 48px !important;
+}
+.fomEmpresa {
+    border-radius: 20px;
 
-    } 
+    input,textarea{
+        border-radius: 30px;
+    }
+}
+
+.anunciosE{
+    border:none !important;
+
+
+    img{
+        width: 100%;
+    }
+
+}
+.textoenviar{
+    color: #fff;
+}
+
+.regresar {
+    margin-top: 30px;
+}
+
+
+// @media only screen and (max-width: 1500px) {
+//     .descripcion{
+//         .col-3{
+//             border: 1px grey solid;
+//                 padding: 1% 1%;
+//                 border-radius: 15px;
+//                 margin-right: 1%;
+//                 width: 37%;
+//         }
+
+//         .col-5{
+//             margin-right: 7%;
+//         }
+
+//     } 
 
     
-  }
+//   }
 
 
 
@@ -170,8 +401,8 @@ h2{
     align-items: center;
 
     img{
-        width: 350px;
-        margin-top: 50px;
+        width: 250px;
+        margin-top: 0;
     
        
     
@@ -204,20 +435,6 @@ h2{
     margin-bottom: 2%;
 }
 
-.iconosCat{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img{
-        width: 32px;
-    }
-    a{
-        margin-right: 1%;
-
-    }
-}
 
 
 .darkmode--activated{

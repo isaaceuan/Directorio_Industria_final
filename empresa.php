@@ -24,11 +24,11 @@
     <div class="fluid-container contenedorInfoEmpresa">
 
         <div class="container contenedorDatos">
-            <div class="col-6 logoEmpresa">
+            <div class="col-xl-6 col-md-10 col-sm-12 logoEmpresa">
                     <img src="" alt="">
             </div>
 
-            <div class="col-5 cuadroEmpresa">
+            <div class="col-xl-5 col-md-10 col-sm-12 cuadroEmpresa">
                 <!-- <div class="contenedorBoton"></div> -->
         </div>
         </div>
@@ -36,21 +36,57 @@
 
     <div class="row cont_desc">
         <div class="fluid-container descripcion">
-            <div class="col-5">
+            <div class="col-xl-5 col-md-8 col-lg-5 col-md-12">
                 <h2>Descripción</h2>
                 <p class="texto-descripcion"></p>
-                <div class="regresar">
-                    <a href="./index.php" class="boton-regresar">Regresar</a>
+                <div class="video-responsive">
+   
                 </div>
 
+                <div class="catalogoP mt-4">
+                  
+                </div>
+
+                <div class="col-12 mt-5">
+                <form class="fomEmpresa p-4" action="class/enviarMensaje.php" method="post">
+  <div class="mb-3">
+    <h5 class="textoenviar mb-4">ENVIAR MENSAJE</h5>
+    <!-- <label for="exampleInputEmail1" class="form-label">Correo:</label> -->
+    <input type="email" name="correo" class="form-control" placeholder="E-mail" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Mensaje:</label>
+  <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1" rows="5"></textarea>
+</div>
+  <div class="col-12 d-flex justify-content-center pb-3 pt-3">
+  <button type="submit" class="btn btn-primary botonEnviarEmpresa">Enviar</button>
+  </div>
+</form>
+                </div>
+                <!-- <div class="regresar">
+                    <a href="./index.php" class="boton-regresar">Regresar</a>
+                </div> -->
+
             </div>
-            <div class="col-3 descripcion_producto">
+            <div class="col-xl-3 col-lg-3 col-md-12 cont_img">
+            <div class="col-12 descripcion_producto">
                 <h4>Búsquedas Destacadas</h4>
                 <div class="img_destacadas">
                     
                 </div>
+                
 
             </div>
+            <div class="col-12 mt-4 flex-column d-flex justify-content-center anunciosEmpresa anunciosE">
+            <h5 class="text-center">Promociones</h5>
+    <!-- <div class="col-md-6 col-lg-6 promociones__item">
+      <img src="src/img/anuncio1.png" alt="">
+    </div>
+    <div class="col-md-6 col-lg-6 promociones__item">
+      <img src="src/img/anuncio2.png" alt="">
+    </div> -->
+  </div>
+  </div>
         </div>
     </div>
 
@@ -60,6 +96,14 @@
         $(".ocultarcat").hide();
 
       });
+    </script>
+
+    <script>
+	    $(".buscador-empresa").css("margin-left", "0");
+
+
+      
+
     </script>
     <script>
 
@@ -88,7 +132,7 @@
                       console.log(cont);
                       
                       html+= `<a href="empresa.php?id=${cont.id}" class="list-group-item list-group-item-action">${cont.nombre}</a>`;
-                         
+                     
                 
              }
                   }else{
@@ -99,7 +143,17 @@
       
       
                   document.getElementById('resultado_busqueda').innerHTML= html;
-      
+
+                  if (screen.width < 500)  {
+                    $(".busc").css("left", "6%");
+                  $(".busc").css("top", "76px");
+                   }
+               
+
+          
+
+
+
       
       
             }else{
@@ -111,6 +165,38 @@
       
       
       </script>
+      <script>
+
+const mostrarAnuncios = async() =>{
+
+  const anuncios = document.querySelector('.anunciosEmpresa');
+const data_mostrar = new FormData();
+  // data_mostrar.append('mostrar', 4)
+
+  const peticionAnuncio = await fetch('class/promoEmpresas.php',{
+      method: 'POST'
+  })
+     const respAnuncio = await peticionAnuncio.json();
+
+
+     console.log(respAnuncio);
+
+     for ( anuncioEmpresa of respAnuncio){
+        //  console.log(anuncioEmpresa);
+
+        anuncios.innerHTML+=`
+          <div class="col-md-12 col-lg-12 promociones__item"><a class="col-12 d-flex justify-content-center" href="empresa.php?id=${anuncioEmpresa.id_empresa}"><img src="src/img/${anuncioEmpresa.url_anuncio}" alt=""></a></div>
+         
+         `;
+         
+        
+        
+     }
+    }
+
+    mostrarAnuncios();
+  
+</script>
     <script src="src/js/listarInfoEmpresa.js"></script>
     <!-- <script src="src/js/lightbox.js"></script> -->
     <script src="src/js/simple-lightbox.jquery.min.js"></script>

@@ -176,8 +176,37 @@
 
                 <p class="texto-cat"></p>
 
-                <!-- <div id="pagination-container"></div> -->
+                <div id="pagination-container"></div>
+                <div class="ocultar_desktop">
+                <section class="promociones container">
 
+                
+<div class="row col">
+    <h2 class="titulo-seccion">Promociones</h2>
+    <hr>
+
+  </div>
+  <div class="row anunciosEmpresa">
+    <!-- <div class="col-md-6 col-lg-6 promociones__item">
+      <img src="src/img/anuncio1.png" alt="">
+    </div>
+    <div class="col-md-6 col-lg-6 promociones__item">
+      <img src="src/img/anuncio2.png" alt="">
+    </div> -->
+  </div>
+</section>
+<section class="informacion">
+<div class="informacion__contenido container">
+  <div class="row justify-content-center">
+    <div class="col-md-7 col-lg-7">
+      <p>¿Tu empresa ofrece servicios o productos relacion<br><span>Forma parte del directorio de la industria</span><br></p>
+      <hr>
+      <a href="registro.php" class="btn btn__aqua">Registrate Aquí</a>
+    </div>
+  </div>
+</div>
+</section>
+</div>
             </div>
                    
         </div>
@@ -190,6 +219,44 @@
     $(".ocultarcat").hide();
 
   })
+</script>
+<!-- <script>
+   if (screen.width < 980)  {
+     alert('ipad');
+   }
+
+</script> -->
+<script>
+
+  const mostrarAnuncios = async() =>{
+
+    const anuncios = document.querySelector('.anunciosEmpresa');
+  const data_mostrar = new FormData();
+    // data_mostrar.append('mostrar', 4)
+
+    const peticionAnuncio = await fetch('class/promoEmpresas.php',{
+        method: 'POST'
+    })
+       const respAnuncio = await peticionAnuncio.json();
+
+
+       console.log(respAnuncio);
+
+       for ( anuncioEmpresa of respAnuncio){
+          //  console.log(anuncioEmpresa);
+
+          anuncios.innerHTML+=`
+            <div class="col-md-6 col-lg-6 promociones__item"><a class="col" href="empresa.php?id=${anuncioEmpresa.id_empresa}"><img src="src/img/${anuncioEmpresa.url_anuncio}" alt=""></a></div>
+           
+           `;
+           
+          
+          
+       }
+      }
+
+      mostrarAnuncios();
+    
 </script>
 <script >
 

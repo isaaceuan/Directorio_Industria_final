@@ -2,17 +2,20 @@ const validar= ()=>{
 
 //  DATOS EMPRESA
     let nombre= document.getElementById("nombre").value;
-    // let direccion= document.getElementById("direccion").value;
+    let direccion= document.getElementById("direccion").value;
     // let email= document.getElementById("email").value;
     // let telefono= document.getElementById("telefono").value;
     // let direccionweb= document.getElementById("direccionweb").value;
-    let informacion= document.getElementById("informacion").value;
+    // let informacion= document.getElementById("informacion").value;
     // let whatsapp= document.getElementById("whatsapp").value;
     // let videourl= document.getElementById("videourl").value;
     // let catalogourl= document.getElementById("catalogourl").value;
     let pais= document.getElementById("pais").value;
     let ciudad= document.getElementById("ciudad").value;
-    let file= document.getElementById("file").value;
+    let lada= document.getElementById("lada").value;
+    let telE= document.getElementById("tel_e").value;
+
+    // let file= document.getElementById("file").value;
     // let file2= document.getElementById("file2").value;
     // let file3= document.getElementById("file3").value;
 // // DATOS REPRESENTANTE
@@ -44,8 +47,8 @@ const validar= ()=>{
 
 
 
-    if (nombre ==""||informacion==""
-    ||ciudad==""||pais==""||file==""||nombreRep==""||telRep==""
+    if (nombre ==""
+    ||ciudad==""||pais==""||direccion==""||lada==""||telE==""||nombreRep==""||telRep==""
     ||puestoRep==""||correoRep==""||checkbox.length==0) {
       // console.log(descProducto);
         Swal.fire({ title: "Campos obligatorios marcados con *",

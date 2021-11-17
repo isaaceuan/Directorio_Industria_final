@@ -11,6 +11,9 @@ const listarInfoEmpresa = async() =>{
     const contImgDestacados = document.querySelector('.img_destacadas');
     const contDatos = document.querySelector('.contenedorDatos');
     const highlogic = document.querySelector('.hihgLogic');
+    const video = document.querySelector('.video-responsive');
+    const catalogo = document.querySelector('.catalogoP');
+
 
     // console.log(params.id);
     // let divCat= document.querySelector(".iconos_cat");
@@ -47,9 +50,16 @@ const listarInfoEmpresa = async() =>{
 
             if(empresa.direccion_web == null){
 
-                tituloEmpresa.innerHTML= `${empresa.nombre}`;
+                // tituloEmpresa.innerHTML= `${empresa.nombre}`;
                 divCuadroEmpresa.innerHTML += `
                 <h2>${empresa.nombre}</h2>
+                <h5 class="mb-3">Miembro representante: </h5>
+                <div class="row align-items-center mb-3 representante">
+                  <div class="col-2"><img width="65" src="src/img/${empresa.url_foto_rep}" alt=""></div>
+                  <div class="col-7"><p class="mb-0">${empresa.nombre_rep}</p>
+                  <p>${empresa.puesto_rep}</p>
+                  </div>
+                </div>
                 <h4>Tel:</h4>
                 <p>${empresa.telefono}</p>
                 <h4>Email:</h4>
@@ -72,6 +82,13 @@ const listarInfoEmpresa = async() =>{
                 // tituloEmpresa.innerHTML= empresa.nombre;
                 divCuadroEmpresa.innerHTML += `
                 <h2>${empresa.nombre}</h2>
+                <h5 class="mb-3">Miembro representante: </h5>
+                <div class="row align-items-center mb-3 representante">
+                  <div class="col-2"><img width="65" src="src/img/${empresa.url_foto_rep}" alt=""></div>
+                  <div class="col-7"><p class="mb-0">${empresa.nombre_rep}</p>
+                  <p>${empresa.puesto_rep}</p>
+                  </div>
+                </div>
                 <h4>Tel:</h4>
                 <p>${empresa.telefono}</p>
                 <h4>Email:</h4>
@@ -105,7 +122,7 @@ const listarInfoEmpresa = async() =>{
 
             
         }else{
-            document.querySelector('.redes').innerHTML+=`<a href="${empresa.youtube}"><img src="src/img/yt.png"></a>`
+            document.querySelector('.redes').innerHTML+=`<a href="${empresa.youtube}"><img src="src/img/ico-yt.png"></a>`
 
         }
         if(empresa.instagram == null ){
@@ -170,8 +187,25 @@ const listarInfoEmpresa = async() =>{
                 
                }
            }
+           if(empresa.video_url !== null){
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+            var match = empresa.video_url.match(regExp);
+            let url_video_final = (match&&match[7].length==11)? match[7] : false;
+            video.innerHTML= `<iframe  src="//www.youtube.com/embed/${url_video_final}" frameborder="0" allowfullscreen></iframe>`;  
+           }
+          
+            // console.log(url_video_final);
+        //    video.innerHTML =`<object width="700" height="350" data="https://www.youtube.com/watch?v=1j_XvebOg4c&list=RD1j_XvebOg4c&start_radio=1" type="application/x-shockwave-flash"><param name="src" value="https://www.youtube.com/watch?v=1j_XvebOg4c&list=RD1j_XvebOg4c&start_radio=1" /></object>`;
         
-
+        if(empresa.catalogo_url!== null ){
+            catalogo.innerHTML= `<div class="col-12">
+            <h4>Catalogo de productos</h4>
+            <div class="col-12 d-flex align-items-center justify-content-center">
+             <a href="${empresa.catalogo_url}" class="botonCatalogo">Ver catálogo completo</a>
+             </div
+          </div`;
+           }
+          
         }if(empresa.miembro === "0"){
             logoEmpresa.style.justifyContent="center";
 
@@ -210,6 +244,7 @@ const listarInfoEmpresa = async() =>{
 
 
         text_desc.innerHTML = longTextoFormat;
+        
 
 
         let contIconosCat = document.querySelector('.iconosCat')

@@ -1,5 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
 html {
   scroll-behavior: smooth !important;
 }
@@ -33,10 +33,19 @@ h1 {
   font-weight: 700 !important;
 }
 
-h2, h3, h4 {
+h2, h3, h4, h5 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700 !important;
-  isolation: isolate;
+  color: #222f7d;
+}
+
+input[type=search] {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 
 .titulo-seccion {
@@ -939,23 +948,6 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
           align-items: center;
 }
 
-.div-iconoanprfree {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .div-iconoanpr img {
   width: 80px;
 }
@@ -968,6 +960,15 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
   display: none;
 }
 
+.ocultar_desktop {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .ocultar_desktop {
+    display: block !important;
+  }
+}
 @media only screen and (max-width: 600px) {
   .cuerpo-contenido-p {
     -ms-flex-wrap: wrap;
@@ -1009,7 +1010,9 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
   }
 
   .r-free {
-    margin-right: 20px;
+    margin-right: 0;
+    width: 100%;
+    margin-top: 10px;
   }
 
   .div-iconoanpr img {
@@ -1069,14 +1072,6 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
     margin-bottom: 30px;
   }
 
-  .div-iconoanprfree {
-    width: 100%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-  }
-
   i.bi.bi-house-fill {
     display: none;
   }
@@ -1100,6 +1095,11 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
       -ms-flex-pack: center;
           justify-content: center;
   padding-bottom: 3%;
+}
+@media only screen and (max-width: 500px) {
+  .contenedorInfoEmpresa {
+    margin-bottom: 20px;
+  }
 }
 
 .contenedorDatos {
@@ -1125,6 +1125,44 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
   border: 2px #cecece solid;
   border-radius: 25px;
   padding: 40px 30px;
+}
+@media only screen and (max-width: 500px) {
+  .cuadroEmpresa {
+    border: none;
+  }
+}
+.cuadroEmpresa .representante img {
+  border-radius: 50%;
+  border: 3px #222f7d solid;
+}
+@media only screen and (max-width: 1200px) {
+  .cuadroEmpresa .representante .col-7 {
+    margin-left: 10px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .cuadroEmpresa .representante .col-7 {
+    margin-left: -30px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cuadroEmpresa .representante .col-7 {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .cuadroEmpresa .representante .col-7 {
+    margin-left: 8%;
+    width: 70%;
+  }
+}
+.cuadroEmpresa p.mb-0 {
+  margin-bottom: 0 !important;
+  font-weight: bold !important;
+}
+.cuadroEmpresa .col-7 p {
+  font-weight: 500;
+  margin-bottom: 0 !important;
 }
 .cuadroEmpresa .contenedorBoton {
   text-align: center;
@@ -1159,6 +1197,21 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
   font-size: 1.2em;
   border-radius: 10px;
 }
+@media only screen and (max-width: 1024px) {
+  .cuadroEmpresa {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cuadroEmpresa {
+    margin-top: 40px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .cuadroEmpresa {
+    padding: 16px 15px;
+  }
+}
 
 .logoEmpresa {
   display: -webkit-box;
@@ -1176,10 +1229,23 @@ a.col-md-1.d-flex.justify-content-center.align-items-center {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+@media only screen and (max-width: 500px) {
+  .logoEmpresa {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 
 .logoEmpresa1 {
   width: 500px;
   height: 500px;
+}
+@media only screen and (max-width: 500px) {
+  .logoEmpresa1 {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .cuadroEmpresa p {
@@ -1211,6 +1277,63 @@ h2 {
   margin-bottom: 6px;
   border: 1px gray solid;
 }
+@media only screen and (max-width: 500px) {
+  .contenedorImgProducto {
+    margin-left: 6px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .contenedorImgProducto a {
+    margin-right: 6px;
+  }
+  .contenedorImgProducto img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.iconosCat {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.iconosCat img {
+  width: 32px;
+}
+@media only screen and (max-width: 500px) {
+  .iconosCat img {
+    width: 22px;
+  }
+}
+.iconosCat a {
+  margin-right: 2%;
+  margin-bottom: 10px;
+}
+
+.video-responsive {
+  width: 100%;
+  height: 400px;
+}
+@media only screen and (max-width: 500px) {
+  .video-responsive {
+    height: 200px;
+  }
+}
+.video-responsive iframe {
+  width: 100%;
+  height: 100%;
+}
 
 .descripcion {
   display: -webkit-box;
@@ -1224,6 +1347,48 @@ h2 {
       -ms-flex-pack: center;
           justify-content: center;
   padding-top: 2%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.descripcion .col-xl-5 {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+@media only screen and (max-width: 1500px) {
+  .descripcion .cont_img {
+    border: none;
+    padding: 1% 1%;
+    border-radius: 15px;
+    margin-right: 1%;
+    width: 37%;
+  }
+  .descripcion .col-xl-5 {
+    margin-right: 7%;
+  }
+  .descripcion .cont_img {
+    width: 35% !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .descripcion .cont_img {
+    width: 80% !important;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 768px) and (max-width: 500px) {
+  .descripcion .cont_img {
+    width: 95% !important;
+  }
+  .descripcion .cont_img .descripcion_producto {
+    padding: 3% 1% !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .descripcion .col-xl-5 {
+    margin-right: 0;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
 }
 .descripcion h2, .descripcion h4 {
   margin-bottom: 3% !important;
@@ -1233,29 +1398,61 @@ h2 {
 .descripcion p {
   text-align: justify;
 }
-.descripcion .col-5 {
-  padding-left: 5%;
-  padding-right: 3%;
+.descripcion .cont_img {
+  border: none;
+  margin-right: 0;
+  width: 20%;
 }
-.descripcion .col-3 {
+.descripcion .cont_img .descripcion_producto {
   border: 1px grey solid;
-  padding: 1% 1%;
   border-radius: 15px;
-  margin-right: 4%;
+  padding: 1% 1%;
+}
+@media only screen and (max-width: 500px) {
+  .descripcion .cont_img .descripcion_producto {
+    border: none;
+  }
 }
 
-@media only screen and (max-width: 1500px) {
-  .descripcion .col-3 {
-    border: 1px grey solid;
-    padding: 1% 1%;
-    border-radius: 15px;
-    margin-right: 1%;
-    width: 37%;
-  }
-  .descripcion .col-5 {
-    margin-right: 7%;
-  }
+.botonCatalogo {
+  background: #222f7d;
+  color: #fff;
+  padding: 13px 46px;
+  border-radius: 30px;
+  font-size: 18px;
 }
+
+.botonEnviarEmpresa {
+  background: #7fe0c5 !important;
+  border: none !important;
+  color: #222f7d !important;
+  font-weight: 700 !important;
+  border-radius: 15px !important;
+  padding: 5px 48px !important;
+}
+
+.fomEmpresa {
+  border-radius: 20px;
+}
+.fomEmpresa input, .fomEmpresa textarea {
+  border-radius: 30px;
+}
+
+.anunciosE {
+  border: none !important;
+}
+.anunciosE img {
+  width: 100%;
+}
+
+.textoenviar {
+  color: #fff;
+}
+
+.regresar {
+  margin-top: 30px;
+}
+
 .img_destacadas {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1272,8 +1469,8 @@ h2 {
           align-items: center;
 }
 .img_destacadas img {
-  width: 350px;
-  margin-top: 50px;
+  width: 250px;
+  margin-top: 0;
 }
 
 .cont_desc {
@@ -1301,25 +1498,6 @@ h2 {
 
 .empresaTitulo {
   margin-bottom: 2%;
-}
-
-.iconosCat {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.iconosCat img {
-  width: 32px;
-}
-.iconosCat a {
-  margin-right: 1%;
 }
 
 .darkmode--activated h1, .darkmode--activated h2, .darkmode--activated h4, .darkmode--activated p {
@@ -1590,10 +1768,20 @@ h2 {
   padding-left: 40px;
   margin-bottom: 30px;
 }
+@media only screen and (max-width: 768px) {
+  .imgtext {
+    padding-left: 0;
+  }
+}
 .imgtext h3 {
   background: #1f286b;
   color: #d0da00;
   padding: 2px 0px;
+}
+@media only screen and (max-width: 768px) {
+  .imgtext h3 {
+    width: 93%;
+  }
 }
 .imgtext p {
   font-weight: 700;

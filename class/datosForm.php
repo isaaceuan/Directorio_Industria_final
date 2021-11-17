@@ -36,15 +36,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $lada = $_POST["lada"];
     $tel_emp = $_POST["tel_emp"];
     $telConLada = $lada." ".$tel_emp;
+    $direccion = $_POST["direccion"];
 
-    $logotipo = $_FILES["file"]["name"];
-    $tmp_name_logotipo = $_FILES["file"]["tmp_name"];
-    $size_logotipo = $_FILES["file"]["size"];
-    $type_logotipo = $_FILES["file"]["type"];
+
+    // $logotipo = $_FILES["file"]["name"];
+    // $tmp_name_logotipo = $_FILES["file"]["tmp_name"];
+    // $size_logotipo = $_FILES["file"]["size"];
+    // $type_logotipo = $_FILES["file"]["type"];
 
     // var_dump($logotipo);
      //setear las imagenes antes de guardarlas
-    $logotipo = $datosForm -> setImg($logotipo, $size_logotipo, $type_logotipo);
+    // $logotipo = $datosForm -> setImg($logotipo, $size_logotipo, $type_logotipo);
 
     // var_dump($logotipo);
 
@@ -54,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // $youtube = $_POST["youtube"];
 
    //guardar en la carpeta
-    $datosForm -> guardarImg($logotipo, $tmp_name_logotipo);
+    // $datosForm -> guardarImg($logotipo, $tmp_name_logotipo);
   
     //guardar los datos de la empresa
     // echo $nombre,$direccion,$email,$telefono,$direccionweb,$informacion,$whatsapp,$videourl,$catalogourl,$archivoF;
@@ -67,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 // $whatsapp,
                                 // $videourl,
                                 // $catalogourl,
-                                $logotipo,
+                                $direccion,
                                 $pais,
                                 $ciudad,
                                 $telConLada);

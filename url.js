@@ -391,9 +391,9 @@ const listarCategorias = async()=>{
    }
     }
 
-    const divPaginador = document.createElement('div');
-    divPaginador.setAttribute("id","pagination-container");
-    contenidoBody.appendChild(divPaginador);
+    // const divPaginador = document.createElement('div');
+    // divPaginador.setAttribute("id","pagination-container");
+    // contenidoBody.appendChild(divPaginador);
 
     let items = $(".contenedor-empresas .card");
     let items2 = $(".contenedor-empresas hr");

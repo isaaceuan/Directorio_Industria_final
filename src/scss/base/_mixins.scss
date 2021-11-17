@@ -1,0 +1,15 @@
+@mixin para-resolucion($tamaño) {
+    @if $tamaño == telefono {
+      @media only screen and (max-width: 500px) { @content; }
+    } @else if $tamaño == tablet-normal {
+      @media only screen and (max-width: 768px) { @content; }
+    } @else if $tamaño == tablet-grande {
+      @media only screen and (max-width: 1024px) { @content; }
+    } @else if $tamaño == escritorio-chico {
+      @media only screen and (max-width: 1200px) { @content; }
+    }@else if $tamaño == escritorio-mediano {
+        @media only screen and (max-width: 1500px) { @content; }
+    }@else if $tamaño == escritorio-grande {
+      @media only screen and (max-width: 1800px) { @content; }
+    }
+  }

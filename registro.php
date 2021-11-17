@@ -188,7 +188,7 @@ $categorias = new Categoria();
       <div class="row">
           <h3 class="text-center titulo-formulario">Registro al directorio de la industria ANPR</h3>
         <label for="exampleInputEmail1" class="form-label">Datos de la empresa</label>
-        <div class="col-6">
+        <div class="col-12">
         <div class="row">
         <div class="col-6">
           <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre de la empresa *" name="nombre">
@@ -196,26 +196,32 @@ $categorias = new Categoria();
               <div class="valid-feedback">Nombre de empresa disponible</div>
         </div>
         <div class="col-6">
-            <input type="file" class="form-control" id="file" name="file" onchange="ValidateSingleInput(this);">Logo empresa *
+            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" >
           </div>
-          <div class="col-6 mt-2">
+          <div class="col-3 mt-3">
             <select id="pais" class="form-select" aria-label="Default select example" required name="pais">
               <option selected value="0">Seleccionar país *</option>
                 <?php echo $empresa -> getHtmlPaises(); ?>
             </select>
             </div>
 
-            <div class="col-6 mt-2">
+            <div class="col-3 mt-3">
               <input type="text" class="form-control" id="ciudad" aria-describedby="emailHelp" placeholder="Ciudad *" name="ciudad">
             </div>
 
-            <div class="col-6 input-group mt-2">
+            <div class="col-md-3 mt-3">
+              <div class="input-group">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus"></i></span>
               <input type="number"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxLength="3" class="form-control col-2" id="lada" aria-describedby="emailHelp" placeholder="Lada *" name="lada">
+              </div>
+            </div>
+            <div class="col-md-3 mt-3">
+            <div class="input-group ">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
               <input type="number" class="form-control col-2" id="tel_e" aria-describedby="emailHelp" placeholder="Teléfono *" name="tel_emp">
+              </div>
             </div>
-          
+
           
           </div>
           </div>
@@ -231,9 +237,7 @@ $categorias = new Categoria();
           <!-- <div class="col-12 mt-2">
             <input type="text" class="form-control" id="direccionweb" aria-describedby="emailHelp" placeholder="Dirección web" name="direccionweb">
           </div> -->
-          <div class="col-6">
-          <textarea class="form-control" id="informacion" placeholder="Información de la empresa *" rows="6" name="informacion"></textarea>
-          </div>
+         
           <!-- <div class="col-6 mt-2">
             <input type="text" class="form-control" id="whatsapp" aria-describedby="WhatsApp" placeholder="WhatsApp" name="whatsapp">
           </div> -->
@@ -448,7 +452,7 @@ $categorias = new Categoria();
         </div>
       </div>
     </form>   
-    <div class="col-xl-4 col-lg-12 imgtext">
+    <div class="col-xl-4 col-lg-12 col-md-12 imgtext">
       <h3>ANUNCIANTE PREMIUM</h3>
       <p>Y ofrece tus productos o servicios <br>de una forma más eficaz.</p>
       

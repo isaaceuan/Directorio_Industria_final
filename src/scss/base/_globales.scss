@@ -24,12 +24,21 @@ h1{
   font-weight: $bold !important;
 }
 
-h2,h3,h4{
+h2,h3,h4,h5{
   font-family: $fuentePrincipal;
   font-weight: $bold !important;
-  isolation: isolate;
+  color: $azulPrincipal;
+
+}
+
+input[type=search] { 	
+font-family: $fuentePrincipal !important;
+}
 
 
+p{
+  font-family: $fuentePrincipal;
+  font-weight: 500;
 }
 
 .titulo-seccion{
@@ -155,3 +164,4 @@ hr {
 a.dropdown-toggle {
   cursor: pointer;
 }
+
