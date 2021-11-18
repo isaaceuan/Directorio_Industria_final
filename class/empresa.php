@@ -196,13 +196,12 @@ $ejecutar = $this -> conexion_db -> query($sql);
 
   }
 
-  public function guardarDatosEmpresa($nombre,$informacion,$direccion,$pais,$ciudad,$telConLada)
+  public function guardarDatosEmpresa($nombre,$direccion,$pais,$ciudad,$telConLada)
   {
     // $direccionweb = !empty($direccionweb) ? "'$direccionweb'" : "NULL"; 
     // $catalogourl = !empty($catalogourl) ? "'$catalogourl'" : "NULL"; 
     // $whatsapp = !empty($whatsapp) ? "'$iwhatsappntLng'" : "NULL";
     // $videourl = !empty($videourl) ? "'$videourl'" : "NULL"; 
-
 
   $sql = "INSERT INTO empresa
     VALUES (NULL, 
@@ -211,7 +210,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
     NULL, 
     '$telConLada',
     NULL,
-    '$informacion',
+    NULL,
     NULL,
     NULL,
    NULL,
@@ -224,6 +223,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
       NULL)";
 
   $ejecutar = $this -> conexion_db -> query($sql);
+var_dump($ejecutar);
 
 
   $this -> empresa = $nombre; 

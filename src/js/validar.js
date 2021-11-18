@@ -24,6 +24,7 @@ const validar= ()=>{
     let puestoRep = document.getElementById("puesto-rep").value;
     let correoRep = document.getElementById("correo-rep").value;
     let checkbox = document.querySelectorAll('input[type=checkbox]:checked');
+    let bodysw = document.querySelector('body.swal2-height-auto');
 
 
 
@@ -50,8 +51,11 @@ const validar= ()=>{
     if (nombre ==""
     ||ciudad==""||pais==""||direccion==""||lada==""||telE==""||nombreRep==""||telRep==""
     ||puestoRep==""||correoRep==""||checkbox.length==0) {
+
+
       // console.log(descProducto);
         Swal.fire({ title: "Campos obligatorios marcados con *",
+        heightAuto: false,
         text: "Porfavor completa de manera correcta los campos",
         icon: "error",customClass: "swal-wide",}).then(okay => {
           if (okay) {
@@ -72,7 +76,8 @@ const validar= ()=>{
       let nombre= document.getElementById("nombre1").value;
       let direccion= document.getElementById("direccion1").value;
       let email= document.getElementById("email1").value;
-      let telefono= document.getElementById("telefono1").value;
+      let lada= document.getElementById("lada1").value;
+      let telE= document.getElementById("tel_e1").value;
       let informacion= document.getElementById("informacion1").value;
       let pais= document.getElementById("pais1").value;
       let ciudad= document.getElementById("ciudad1").value;
@@ -107,11 +112,12 @@ const validar= ()=>{
   
   
   
-      if (nombre ==""||direccion==""||email==""||telefono==""||informacion==""
+      if (nombre ==""||direccion==""||email==""||telE==""||lada==""||informacion==""
       ||pais==""||ciudad==""||file==""||file2==""||nombreRep==""||telRep==""
       ||puestoRep==""||correoRep==""||checkbox.length==0  ||imgProducto.includes("")||nombreProducto.includes("")) {
         // console.log(descProducto);
           Swal.fire({ title: "Campos obligatorios marcados con *",
+          heightAuto: false,
           text: "Porfavor completa de manera correcta los campos",
           icon: "error",customClass: "swal-wide",}).then(okay => {
             if (okay) {

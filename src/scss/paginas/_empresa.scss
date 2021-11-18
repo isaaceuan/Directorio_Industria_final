@@ -134,8 +134,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
+
+    @include para-resolucion(tablet-grande) {    
+        justify-content: space-around;
+
+        
+    }
 
     @include para-resolucion(telefono) {    
         justify-content: center;
@@ -144,8 +150,8 @@
     }
 }
 .logoEmpresa1{
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    // height: 450px;
 
     @include para-resolucion(telefono) {    
         width: 300px;
@@ -207,6 +213,10 @@ h2{
     align-items: center;
     flex-wrap: wrap;
 
+    @include para-resolucion(tablet-normal) {
+        margin-top: 30px;
+
+    }
     img{
         width: 32px;
         @include para-resolucion(telefono) {
@@ -223,10 +233,10 @@ h2{
 
 
 .video-responsive{
-    width:100%;
-    height:400px;
+    // width:100%;
+    // height:400px;
     @include para-resolucion(telefono) {
-        height:200px;
+        // height:200px;
 
     }
 

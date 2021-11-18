@@ -62,7 +62,7 @@ const listarCategorias = async()=>{
 
       //  console.log(cat);
       if(cat.categoria == undefined) {
-        tituloCat.innerHTML = `Todas las empresas`;
+        // tituloCat.innerHTML = `Todas las empresas`;
         if(resp ==='vacios'){
           textoMensaje.innerHTML = `No hay ninguna empresa registrada aun `;
 
@@ -73,7 +73,7 @@ const listarCategorias = async()=>{
 
 
       }else{
-        tituloCat.innerHTML = cat.categoria;
+        tituloCat.innerHTML = "";
         textoMensaje.innerHTML = "";
       }
 
@@ -144,6 +144,7 @@ const listarCategorias = async()=>{
         botonEnviarMensaje.classList.add("boton-enviar-mensaje");
         // botoEnviarMensaje.href = `empresa.php?id=${cat.id}`;
         botonEnviarMensaje.innerText = 'Enviar Mensaje';
+        botonEnviarMensaje.href= `mailto:${cat.email}`
 
         let iconoEnviarM = document.createElement('i');
         iconoEnviarM.classList.add("bi")

@@ -192,6 +192,11 @@ const listarInfoEmpresa = async() =>{
             var match = empresa.video_url.match(regExp);
             let url_video_final = (match&&match[7].length==11)? match[7] : false;
             video.innerHTML= `<iframe  src="//www.youtube.com/embed/${url_video_final}" frameborder="0" allowfullscreen></iframe>`;  
+            $(".video-responsive").css({ 'height' : '350px', 'width' : '100%' });
+            if (screen.width < 501)  {
+                $(".video-responsive").css({ 'height' : '200px', 'width' : '100%' });
+            }
+
            }
           
             // console.log(url_video_final);

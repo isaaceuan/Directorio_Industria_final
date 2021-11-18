@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // $email = $_POST["email"];
     // $telefono = $_POST["telefono"];
     // $direccionweb = $_POST["direccionweb"];
-    $informacion = $_POST["informacion"];
+    // $informacion = $_POST["informacion"];
     // $whatsapp = $_POST["whatsapp"];
     // $videourl = $_POST["videourl"];
     // $catalogourl = $_POST["catalogourl"];
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 // $email,
                                 // $telefono,
                                 // $direccionweb,
-                                $informacion,
+                                // $informacion,
                                 // $whatsapp,
                                 // $videourl,
                                 // $catalogourl,
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($guardarEmpresa || $guardarRepresentante ){
         echo '<script>
                       Swal.fire({ title: "Registro completo",
-                          text: "Datos Enviados, La aprobación esta sujeta a revisión de la ANPR",
+                          text: "Datos enviados, la aprobación esta sujeta a revisión de la ANPR",
                           icon: "success",customClass: "swal-wide",}).then(okay => {
                             if (okay) {
                              window.location.href = "../index.php";

@@ -200,8 +200,8 @@ const data_mostrar = new FormData();
     <script src="src/js/listarInfoEmpresa.js"></script>
     <!-- <script src="src/js/lightbox.js"></script> -->
     <script src="src/js/simple-lightbox.jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script> -->
+    <!-- <script>
   function addDarkmodeWidget() {
 
 
@@ -221,6 +221,6 @@ const data_mostrar = new FormData();
     new Darkmode(options).showWidget();
   }
   window.addEventListener('load', addDarkmodeWidget);
-</script>
+</script> -->
 </body>
 </html>

@@ -1,5 +1,8 @@
 <?php session_start();
-require ("class/clases.php");
+require ("class/conexion.php");
+require ("class/empresa.php");
+require ("class/categoria.php");
+
 $empresa = new Empresa();
 $categorias = new Categoria();
 ?>
@@ -54,10 +57,10 @@ $categorias = new Categoria();
      <i class="bi bi-check-lg"></i>
      <p>Dirección</p>
      </div>
-     <div class="contenidogratuito">
+     <!-- <div class="contenidogratuito">
      <i class="bi bi-check-lg"></i>
      <p>Correo</p>
-     </div>
+     </div> -->
      <div class="contenidogratuito">
      <i class="bi bi-check-lg"></i>
      <p>Telefono</p>
@@ -86,7 +89,7 @@ $categorias = new Categoria();
      <p>Dirección</p>
      </div>
      <div class="contenidogratuito">
-     <i class="bi bi-check-lg"></i>
+     <i class="bi bi-check-lg premium"></i>
      <p>Correo</p>
      </div>
      <div class="contenidogratuito">
@@ -175,7 +178,7 @@ $categorias = new Categoria();
 <div class="fluid-containter">
     <div class="col-md-12">
       <div class="row contacto">
-        <a class="info" href="">Más información</a>
+        <a class="info" href="http://wa.link/jvkehs">Más información</a>
         <a href="">comercial@anpr.org.mx</a>
         <p>Tel. +52 9999 44 40 60</p>
         </div>
@@ -200,7 +203,7 @@ $categorias = new Categoria();
           </div>
           <div class="col-3 mt-3">
             <select id="pais" class="form-select" aria-label="Default select example" required name="pais">
-              <option selected value="0">Seleccionar país *</option>
+              <option selected value="0">País *</option>
                 <?php echo $empresa -> getHtmlPaises(); ?>
             </select>
             </div>
@@ -273,10 +276,10 @@ $categorias = new Categoria();
               <input type="number" class="form-control" id="tele-rep" aria-describedby="emailHelp" placeholder="Telefono *" name="tele-rep">
             </div>
             <div class="col-3 mt-2">
-              <input type="text" class="form-control" id="puesto-rep" aria-describedby="emailHelp" placeholder="Puesto representante *" name="puesto-rep">
+              <input type="text" class="form-control" id="puesto-rep" aria-describedby="emailHelp" placeholder="Cargo *" name="puesto-rep">
             </div>
             <div class="col-3 mt-2">
-              <input type="email" class="form-control" id="correo-rep" aria-describedby="emailHelp" placeholder="Correo-representante *" name="correo-rep">
+              <input type="email" class="form-control" id="correo-rep" aria-describedby="emailHelp" placeholder="Email *" name="correo-rep">
             </div>
             <!-- <div class="col-12 mt-2">
               <input type="url" class="form-control" id="link-rep" aria-describedby="emailHelp" placeholder="Link Higherlogic" name="link-rep">
@@ -334,7 +337,7 @@ $categorias = new Categoria();
   <div  class="ocultar" id="premium">
   <div  class="container mt-5 d-flex">
     
-  <form  class="col-xl-8 col-lg-12 col-md-12 d-flex align-items-center" method="post" action="../../miembros3/class/datosFormPremium.php"  enctype="multipart/form-data" onsubmit="return validar_premium()">
+  <form  class="col-xl-8 col-lg-12 col-md-12 d-flex align-items-center" method="post" action="class/datosFormPremium.php"  enctype="multipart/form-data" onsubmit="return validar_premium()">
       <div class="row">
       <h3 class="text-center titulo-formulario">Registro al directorio de la industria ANPR</h3>
         <label for="exampleInputEmail1" class="form-label">Datos de la empresa</label>
@@ -347,9 +350,18 @@ $categorias = new Categoria();
         <div class="col-6 mt-2">
             <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email *" name="email">
           </div>
-          <div class="col-6 mt-2">
-            <input type="text" class="form-control" id="telefono1" placeholder="Telefono *" name="telefono">
-          </div>
+          <div class="col-md-3 mt-2">
+              <div class="input-group">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus"></i></span>
+              <input type="number"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxLength="3" class="form-control col-2" id="lada1" aria-describedby="emailHelp" placeholder="Lada *" name="lada">
+              </div>
+            </div>
+            <div class="col-md-3 mt-2">
+            <div class="input-group ">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
+              <input type="number" class="form-control col-2" id="tel_e1" aria-describedby="emailHelp" placeholder="Teléfono *" name="tel_emp">
+              </div>
+            </div>
           <div class="col-12 mt-2">
             <input type="text" class="form-control" id="direccionweb1" aria-describedby="emailHelp" placeholder="Direccion web" name="direccionweb">
           </div>
@@ -393,7 +405,7 @@ $categorias = new Categoria();
               <input type="url" class="form-control" id="youtube1" aria-describedby="emailHelp" placeholder="Youtube" name="youtube">
             </div>
 
-            <label for="exampleInputEmail1" class="form-label mt-4">Datos del represetante de al empresa:</label>
+            <label for="exampleInputEmail1" class="form-label mt-4">Datos del represetante de la empresa:</label>
             <div class="col-6 mt-2">
               <input type="text" class="form-control" id="nom-rep1" aria-describedby="emailHelp" placeholder="Nombre *" name="nom-rep">
             </div>
@@ -412,7 +424,7 @@ $categorias = new Categoria();
             <div id="" class="col-12 mt-2">
                 <input type="file" id="files2" name="foto" class="form-control" placeholder="Foto" onchange="ValidateSingleInput(this);">Fotografía del representante *
             </div>
-            <label for="exampleInputEmail1" class="form-label mt-4">Categorias (Selecciona almenos 1): *</label>
+            <label for="exampleInputEmail1" class="form-label mt-4">Categorías (Selecciona almenos 1): *</label>
 
 
 
@@ -425,25 +437,25 @@ $categorias = new Categoria();
           
             <label for="exampleInputEmail1" class="form-label mt-4">Productos (Máximo 6):</label>
             <div id="listas" class="col-12 mt-2">
-                <input type="text" name="nom-prod1[]" id="nombre-prod1" class="form-control" placeholder="Nombre del Producto *">
+                <input type="text" name="nom-prod[]" id="nombre-prod1" class="form-control" placeholder="Nombre del Producto *">
             </div>
           <!--  <div id="listas" class="col-12 mt-2">-->
           <!--<textarea class="form-control text-a" id="desc-prod" id="desc-prod" placeholder="descripcion del producto *" rows="3" name="desc-prod[]"></textarea>-->
           <!--</div>-->
             <div id="listas1" class="col-12 mt-2">
-                <input type="file" id="files3" name="archivo1[]" class="form-control imgproducto" placeholder="Foto del producto" onchange="ValidateSingleInput(this);" >Imagen producto *
+                <input type="file" id="files3" name="archivo[]" class="form-control imgproducto" placeholder="Foto del producto" onchange="ValidateSingleInput(this);" >Imagen producto *
             </div>
             
             <div class="col-12 mt-2">
             <input type="button" id="add_field" value="Agregar Producto" class="btn btn-success">
             </div>
-            <div class="col-12 mt-2 codigo">
-            <label for="exampleInputEmail1" class="form-label mt-4">Codigo de activacion:</label>
+            <!-- <div class="col-12 mt-2 codigo">
+            <label for="exampleInputEmail1" class="form-label mt-4">Codigo de activación:</label>
 
             <input type="text" class="form-control" id="codAct" aria-describedby="emailHelp" placeholder="Codigo de activación *" name="ca1" required>
               <div class="invalid-feedback">Codigo de activación invalido</div>
               <div class="valid-feedback">Codigo activación valido</div>
-            </div>
+            </div> -->
         <div class="col-12 text-center mt-4">
 
         <button type="submit" class="btn btn-success m-auto">Registrarme Premium</button>
@@ -625,7 +637,7 @@ function myFunction() {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.0/dist/sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="src/js/validar.js"></script>
     <script src="src/js/agregarCampo.js"></script>
     <!-- <script src="src/js/agregarCampo.js"></script> -->

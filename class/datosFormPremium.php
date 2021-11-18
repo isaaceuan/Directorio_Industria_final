@@ -13,7 +13,7 @@
 </body>
 </html>
 <?php
-require ("../../miembros3/class/clases.php");
+require ("../../../miembros3/class/clases.php");
 $datosForm= new Empresa();
 $representante = new Representante();
 $categorias = new Categoria();
@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $nombre = $_POST["nombre"];
     $direccion = $_POST["direccion"];
     $email = $_POST["email"];
-    $telefono = $_POST["telefono"];
+    $telefono = $_POST["tel_emp"];
+    $lada = $_POST["lada"];
     $direccionweb = $_POST["direccionweb"];
     $informacion = $_POST["informacion"];
     $whatsapp = $_POST["whatsapp"];
@@ -38,6 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $tmp_name_logotipo = $_FILES["file"]["tmp_name"];
     $size_logotipo = $_FILES["file"]["size"];
     $type_logotipo = $_FILES["file"]["type"];
+    $miembro = 0;
+    $telConlada = $lada." ".$telefono;
 
     // var_dump($logotipo);
      //setear las imagenes antes de guardarlas
@@ -51,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $youtube = $_POST["youtube"];
 
 
-    if (isset($_POST["ca"])) {
-        $ca = $_POST["ca"];   
+    if (isset($_POST["ca1"])) {
+        $ca = $_POST["ca1"];   
      } else {    
          $ca = "";   
      }
@@ -65,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $guardarEmpresa = $datosForm->guardarDatosEmpresa($nombre,
                                 $direccion,
                                 $email,
-                                $telefono,
+                                $telConlada,
                                 $direccionweb,
                                 $informacion,
                                 $whatsapp,
@@ -74,7 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 $logotipo,
                                 $pais,
                                 $ciudad,
-                                $ca
+                                $ca,
+                                $miembro
                                );
     
     //obtener el id de la empresa
@@ -160,10 +164,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($guardarEmpresa || $guardarRepresentante || $guardar_productos ){
         echo '<script>
                       Swal.fire({ title: "Registro completo",
-                          text: "Tu registro se ha guardado con éxito",
+                          text: "Tu registro se ha guardado con éxito, nos pondremos en contancto contigo",
                           icon: "success",customClass: "swal-wide",}).then(okay => {
                             if (okay) {
-                             window.location.href = "../cpanel/admin/altaEmpresa.php";
+                             window.location.href = "../index.php";
                            }
                          });
                     
