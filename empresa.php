@@ -181,7 +181,8 @@ const data_mostrar = new FormData();
 
      console.log(respAnuncio);
 
-     for ( anuncioEmpresa of respAnuncio){
+     if(respAnuncio.length>0){
+      for ( anuncioEmpresa of respAnuncio){
         //  console.log(anuncioEmpresa);
 
         anuncios.innerHTML+=`
@@ -191,7 +192,11 @@ const data_mostrar = new FormData();
          
         
         
+     }  
+     }else{
+      anuncios.innerHTML=``;
      }
+   
     }
 
     mostrarAnuncios();

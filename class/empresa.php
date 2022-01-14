@@ -104,6 +104,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
   public function imgDestacada($mostrar){
     $sql = "SELECT id, logo_url FROM empresa
     WHERE miembro =  1
+    OR miembro = 2
     ORDER BY RAND()
     LIMIT $mostrar";
 
@@ -128,6 +129,70 @@ $ejecutar = $this -> conexion_db -> query($sql);
       $data = $ejecutar -> fetch_all(MYSQLI_ASSOC);
 
       echo json_encode($data);
+  }
+
+  public function getHtlmPaisesLatam()
+  {
+    $bloque = "";
+
+    foreach($this -> allPaisesLatam() as $data)
+    {
+      $id = $data["id_pais"];
+
+      $nombre = $data["nombre_pais"];
+
+      $bloque .= '<input type="checkbox" name="paises_latam[]" value="'.$id.'"> <label>'.$nombre.'</label>';
+    }
+
+    
+
+    return $bloque;
+
+  }
+  public function allPaisesLatam()
+  {
+    
+    $sql = "SELECT *
+    FROM paises_latam";
+
+    $ejecutar = $this -> conexion_db -> query($sql);
+
+    $result = $ejecutar -> fetch_all(MYSQLI_ASSOC);
+
+    $data = json_encode($result[0]);
+
+    return $result;
+
+  }
+  public function guardarPaisesLatam($id_pais,$idEmpresa){
+
+    $result = "";
+    foreach($id_pais as $valor)
+    {
+
+      // var_dump($data);
+
+      $id_pais_latam = $valor;
+
+      $sql = "INSERT INTO empresa_pais 
+      VALUES (NULL,
+              $id_pais_latam,
+              $idEmpresa)";
+
+      $guardar = $this -> conexion_db -> query($sql);
+
+      if($guardar){
+        $result = true;
+      }
+      else{
+        $result = false;
+      }
+
+    }
+
+    return $result;
+
+
   }
 
 
@@ -161,14 +226,26 @@ $ejecutar = $this -> conexion_db -> query($sql);
 
 
 
+    // $sql = "SELECT empresa.nombre, prd.nombre_pruducto, empresa.id ,empresa.miembro
+    // FROM empresa
+    // LEFT OUTER JOIN producto as prd ON prd.id_empresa = empresa.id
+    // WHERE empresa.miembro =1
+    // OR empresa.miembro = 2
+    // OR empresa.miembro = 3   
+    // AND empresa.nombre LIKE '%$query%'
+    // OR prd.nombre_pruducto LIKE '%$query%'
+    // LIMIT 5
+    // ";
+
     $sql = "SELECT empresa.nombre, prd.nombre_pruducto, empresa.id ,empresa.miembro
     FROM empresa
     LEFT OUTER JOIN producto as prd ON prd.id_empresa = empresa.id
-    WHERE empresa.miembro =1  
-    AND empresa.nombre LIKE '%$query%'
-    OR prd.nombre_pruducto LIKE '%$query%'
-    LIMIT 5
-    ";
+
+    WHERE empresa.miembro !=0 
+	AND prd.nombre_pruducto LIKE '%$query%'
+    OR empresa.nombre LIKE '%$query%'
+
+    LIMIT 5";
 
     $ejecutar = $this -> conexion_db -> query($sql);
 
@@ -183,7 +260,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
 
   
 
-    $producto = $row["nombre_pruducto"]." ".$row['nombre'];
+    $producto = $row["nombre_pruducto"]."- ".$row['nombre'];
     
 		$data[] = array(
 			'nombre'		=>	str_ireplace($condition, $replace_string,$producto),
@@ -223,7 +300,7 @@ $ejecutar = $this -> conexion_db -> query($sql);
       NULL)";
 
   $ejecutar = $this -> conexion_db -> query($sql);
-var_dump($ejecutar);
+// var_dump($ejecutar);
 
 
   $this -> empresa = $nombre; 

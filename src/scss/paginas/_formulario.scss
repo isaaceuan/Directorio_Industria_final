@@ -2,6 +2,11 @@
     width: 26%;
     margin-bottom: 5px;
     font-weight: 500;
+
+    @include para-resolucion(telefono) { 
+        width: 42%;
+
+    }
 }
 
 form {

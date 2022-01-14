@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $catalogourl = $_POST["catalogourl"];
     $pais = $_POST["pais"];
     $ciudad = $_POST["ciudad"];
+    $p_latam = $_POST["paises_latam"];
 
     $logotipo = $_FILES["file"]["name"];
     $tmp_name_logotipo = $_FILES["file"]["tmp_name"];
@@ -85,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $dataEmpresa = json_decode($datosForm -> getEmpresaByNombre($nombre));
 
     $idEmpresa = $dataEmpresa -> id;
+    $paisesLatam = $datosForm->guardarPaisesLatam($p_latam,$idEmpresa);
 
     $datosRedesSociales= $datosForm->gardarRedesSociales($facebook,
                                                             $twitter,

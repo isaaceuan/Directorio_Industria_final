@@ -80,7 +80,7 @@ const listarCategorias = async()=>{
 
       
 
-       if (cat.miembro === "1"){
+       if (cat.miembro === "2"){
       
 
        const card = document.createElement("div");
@@ -236,7 +236,166 @@ const listarCategorias = async()=>{
         cardBody.appendChild(premium);
         // cardBody.appendChild(iconoanpr);
 
-       }if(cat.miembro === "0"){
+       }
+       if (cat.miembro === "1"){
+      
+
+       const card = document.createElement("div");
+       card.classList.add("card","cuerpo-contenido-p" ,"cuerpo-contenido");
+
+       const urlImg = document.createElement('a')
+       urlImg.href =  `empresa.php?id=${cat.id}`;
+
+       card.appendChild(urlImg);
+
+       const imgEmpresa = document.createElement('img');
+       imgEmpresa.classList.add("imgEmpresa");
+       imgEmpresa.src = `src/img/${cat.logo_url}`;
+       imgEmpresa.style.setProperty("width", "180px");
+       imgEmpresa.style.setProperty("height", "180px"); 
+       urlImg.appendChild(imgEmpresa);
+
+        const cardBody = document.createElement("div");
+       //  cardBody.innerText = cat.nombre;
+        cardBody.classList.add("tcard-body" ,"cuerpo-card");
+        card.appendChild(cardBody);
+
+        const tituloEmpresa = document.createElement('h4');
+        tituloEmpresa.innerText=  cat.nombre;
+        cardBody.appendChild(tituloEmpresa);
+
+
+
+          const iconoanpr = document.createElement('div');
+        iconoanpr.classList.add("anpr-icono");
+
+        const contenedorimgAnpr = document.createElement('div');
+        contenedorimgAnpr.classList.add("div-iconoanpr");
+
+        
+        // const imgIcono = document.createElement('img');
+        // imgIcono.src ='src/img/icono-miembro.jpeg'
+
+
+        const verMas = document.createElement('div');
+        verMas.classList.add("div-boton-mas");
+
+        
+        const botonVerMas =document.createElement('a');
+        botonVerMas.classList.add("boton-ver-mas");
+        botonVerMas.href = `empresa.php?id=${cat.id}`;
+        botonVerMas.innerText = 'Más Información';
+
+        let iconomasInfo = document.createElement('i');
+        iconomasInfo.classList.add("bi")
+        iconomasInfo.classList.add("bi-plus-lg")
+
+        botonVerMas.appendChild(iconomasInfo);
+        verMas.appendChild(botonVerMas);
+
+        const enviarMensaje = document.createElement('div');
+        enviarMensaje.classList.add("enviar-mensaje");
+
+        
+        const botonEnviarMensaje =document.createElement('a');
+        botonEnviarMensaje.classList.add("boton-enviar-mensaje");
+        // botoEnviarMensaje.href = `empresa.php?id=${cat.id}`;
+        botonEnviarMensaje.innerText = 'Enviar Mensaje';
+        botonEnviarMensaje.href= `mailto:${cat.email}`
+
+        let iconoEnviarM = document.createElement('i');
+        iconoEnviarM.classList.add("bi")
+        iconoEnviarM.classList.add("bi-envelope-fill")
+
+        botonEnviarMensaje.appendChild(iconoEnviarM);
+
+        const contactoOcultar = document.createElement('div');
+        contactoOcultar.classList.add("ocultar");
+
+        
+
+        let telefonoOcultar= document.createElement('a');
+        telefonoOcultar.classList.add("cel-responsive");
+        telefonoOcultar.innerText = cat.telefono;
+        telefonoOcultar.href= `tel:${cat.telefono}`;
+
+        let icono_tel_ocultar = document.createElement('i');
+        icono_tel_ocultar.classList.add("bi")
+        icono_tel_ocultar.classList.add("bi-phone")
+
+        telefonoOcultar.appendChild(icono_tel_ocultar);
+
+
+        contactoOcultar.appendChild(telefonoOcultar);
+
+
+
+
+
+        enviarMensaje.appendChild(botonEnviarMensaje)
+
+
+        // contenedorimgAnpr.appendChild(imgIcono);
+        contenedorimgAnpr.appendChild(contactoOcultar);
+        contenedorimgAnpr.appendChild(enviarMensaje);
+        contenedorimgAnpr.appendChild(verMas);
+        card.appendChild(contenedorimgAnpr);
+        
+     
+
+        const descripcionEmpresa = document.createElement('p')
+          descripcionEmpresa.innerText = cat.direccion;
+
+
+          const contenedorimgAnproculto = document.createElement('div');
+          contenedorimgAnproculto.classList.add("ocultar","iconoanproculto");
+
+        
+        const imgIconoOculto = document.createElement('img');
+        imgIconoOculto.src ='src/img/icono-miembro.jpeg'
+
+
+        contenedorimgAnproculto.appendChild(imgIconoOculto);
+          cardBody.appendChild	(descripcionEmpresa);
+          cardBody.appendChild(contenedorimgAnproculto);
+
+
+        contendorEmpresa.appendChild(card);
+
+        const premium = document.createElement('div');
+        premium.classList.add("contenido-premium");
+
+
+
+
+        const contacto = document.createElement('div');
+        contacto.classList.add("div-contacto");
+
+        
+
+        let telefono= document.createElement('a');
+        telefono.innerText = cat.telefono;
+        telefono.href= `tel:${cat.telefono}`;
+
+        let icono_tel = document.createElement('i');
+        icono_tel.classList.add("bi")
+        icono_tel.classList.add("bi-phone")
+
+        telefono.appendChild(icono_tel);
+
+
+        contacto.appendChild(telefono);
+
+
+        premium.appendChild(contacto);
+
+        
+        cardBody.appendChild(premium);
+        // cardBody.appendChild(iconoanpr);
+
+       }
+       
+       if(cat.miembro === "0"){
         
 
         const card = document.createElement("div");
@@ -380,11 +539,15 @@ const listarCategorias = async()=>{
     
 
        }
+
+       if(resp !== "vacios"){
+        contendorEmpresa.innerHTML += `
+        <hr class="separadorEmpresas">
+        
+        `;
+       }
        
-       contendorEmpresa.innerHTML += `
-       <hr class="separadorEmpresas">
        
-       `;
        
    
                 
@@ -416,7 +579,7 @@ const listarCategorias = async()=>{
           let showFrom = perPage * (pageNumber - 1);
           let showTo = showFrom + perPage;
           items.hide().slice(showFrom, showTo).show();
-          items2.hide().slice(showFrom, showTo).show();
+          // items2.hide().slice(showFrom, showTo).show();
 
       }
   });
@@ -530,6 +693,51 @@ listarCategorias();
 
 }
 
+const cargar_info = async(resultado) =>{
+  
+  // resultado.value= resultado.value.charAt(0).toUpperCase() + resultado.value.slice(1);
+
+  // resultado.value = resultado.value.toLowerCase();
+    if(resultado.value.length >= 1 ){
+        let data = new FormData();
+        data.append('resultado', resultado.value);
+        const peticion = await fetch('class/buscador.php',{
+            method: 'POST',
+            body: data
+            })
+
+        const resp = await peticion.json();
+        // console.log(resp);
+
+        let html = `<div class="list-group busc">`;
+
+          if(resp.length > 0){
+            for(cont of resp)
+            {
+
+              console.log(cont);
+              
+              html+= `<a href="empresa.php?id=${cont.id}" class="list-group-item list-group-item-action">${cont.nombre}</a>`;
+                 
+        
+     }
+          }else{
+            html+=  `<a href="#" class="list-group-item list-group-item-action">No hay resultados</a>`;
+          }
+
+          html += `</div>`;
+
+     
+          document.getElementById('resultado_busqueda').innerHTML= html;
+
+
+
+    }else{
+      document.getElementById('resultado_busqueda').innerHTML="";
+    }
+}
+
+
 
 
 
@@ -537,3 +745,23 @@ listarCategorias();
 
 listarCategorias();
 mostrarCategoriasAside();
+
+
+// const titulo = document.querySelector('h1.entry-title');
+
+// // title = titulo.innerHTML.replace(/(<([^>]+)>)/gi, '');
+// title = titulo.innerHTML;
+// title2 = titulo.innerHTML;
+// title = titulo.innerHTML.replace('&lt;span&gt;', '');
+// title2 = titulo.innerHTML.replace('&lt;/span&gt;', '');
+
+
+
+// const titulo = document.querySelector('h1.entry-title');
+
+// // title = titulo.innerHTML.replace(/(<([^>]+)>)/gi, '');
+// titulo.innerHTML = titulo.innerHTML.replace('&lt;span&gt;', '');
+// titulo.innerHTML = titulo.innerHTML.replace('&lt;/span&gt;', '');
+// titulo.innerHTML = titulo.innerHTML.replace('Category', 'Categoria');
+
+

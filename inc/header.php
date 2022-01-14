@@ -3,19 +3,19 @@
     <div class="off-canvas-wrapper">
      <div class="menu_hl">
             <div class="container justify-content-end ocultarmovil">
-              <div class="col-lg-12">
+            <div class="col-lg-12">
                   <ul class="level1">
-                    <li class="guiaNav"><a class="level1 MPAuxNav " href="https://anprm.connectedcommunity.org/home">Guia de navegacipon</a></li>
-                    <li><a class="level1 MPAuxNav" href="https://anprm.connectedcommunity.org/new-page2">Contacto</a></li>
-                    <li class="premium"><a title="How to get in contact with us" class="level1 MPAuxNav" href="https://anprm.connectedcommunity.org/contactus">Ser premium</a></li>
-                    <li class="inicio"><a class="level1 MPAuxNav" href="https://anprm.connectedcommunity.org/new-page">Iniciar Sesión </a></li>
-                    <li class="registro"><a title="Read the code of conduct for posting to the lists" class="level1 MPAuxNav" href="https://anprm.connectedcommunity.org/termsandconditions">Regristro</a></li>
+                    <li class="guiaNav"><a class="level1 MPAuxNav " href="https://anprm.connectedcommunity.org/home">Guía de navegación</a></li>
+                    <li><a class="level1 MPAuxNav" href="https://anprm.connectedcommunity.org/contactus">Contacto</a></li>
+                    <li class="premium"><a title="How to get in contact with us" class="level1 MPAuxNav" href="https://anpr.org.mx/directorio/registro.php#premium">Ser premium</a></li>
+                    <li class="inicio"><a class="level1 MPAuxNav" href="https://anpr.org.mx/miembros/?ReturnURL=https%3a%2f%2fanprm.connectedcommunity.org%2fHigherLogic%2fSecurity%2fLoggedOut.aspx">Iniciar Sesión </a></li>
+                    <li class="registro"><a title="Read the code of conduct for posting to the lists" class="level1 MPAuxNav" href="https://anpr.org.mx/directorio/registro.php#free">Registro</a></li>
                   </ul>
               </div>
             </div>
             <div class="container">
               <div class="row  titulo_conexion">
-                <div class="col-lg-3">
+                <div class="col-lg-3 img-con">
                 <a href="https://anprm.connectedcommunity.org/home">
                   <img src="https://higherlogicdownload.s3.amazonaws.com/ANPRM/9bcc1d5a-1ed4-43f9-8f38-a64430bd9614/UploadedImages/conexion_300x100.png" alt="">
                 </a>

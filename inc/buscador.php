@@ -37,7 +37,7 @@
     <div class="col-md-8 buscador_ajax_cat">
                 <div class="row mt-4 d-flex justify-content-center">
               <a href="index.php" class="col-md-1 d-flex justify-content-center align-items-center casita"><i class="bi bi-house-fill"></i></a>
-            <input type="search" class="form-control buscador-empresa col-md-4" onkeyup="cargar_info(this)" placeholder="Buscar productos, marcas y más...">
+            <input type="search" class="form-control buscador-empresa col-md-4" onkeyup="cargar_info(this)" onkeypress="buscar(event)" placeholder="Buscar productos, marcas y más...">
               <!-- <button class="btn btn-outline-secondary" type="button" id="buscar">Buscar</button> -->
               </div>
         <span id="resultado_busqueda"></span>

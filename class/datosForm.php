@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $tel_emp = $_POST["tel_emp"];
     $telConLada = $lada." ".$tel_emp;
     $direccion = $_POST["direccion"];
+    $p_latam = $_POST["paises_latam"];
 
 
     // $logotipo = $_FILES["file"]["name"];
@@ -84,6 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     //                                                         $instagram,
     //                                                         $youtube,
     //                                                         $idEmpresa);
+    $paisesLatam = $datosForm->guardarPaisesLatam($p_latam,$idEmpresa);
+
     $datosRedesSociales= $datosForm->gardarRedesSociales($idEmpresa);
 
 

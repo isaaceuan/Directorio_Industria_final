@@ -502,16 +502,16 @@ a.link_cat:hover > figcaption {
 }
 
 .primero .enlaces {
-  margin-left: 8%;
+  margin-left: 3%;
 }
 
 .primero a {
   color: #fff !important;
   list-style: none;
   text-decoration: none;
-  margin-right: 50px;
+  margin-right: 15px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .primero .borde {
@@ -656,6 +656,11 @@ a.link_cat:hover > figcaption {
   width: 26%;
   margin-bottom: 5px;
   font-weight: 500;
+}
+@media only screen and (max-width: 500px) {
+  .otro label {
+    width: 42%;
+  }
 }
 
 form {
@@ -852,8 +857,8 @@ input, select, textarea {
           box-sizing: border-box;
 }
 
-.nombre_cat, .text-center {
-  color: #222f7d;
+.nombre_cat {
+  color: #747682;
 }
 
 .cuerpo-contenido-p {
@@ -1332,6 +1337,22 @@ h2 {
 .iconosCat a {
   margin-right: 2%;
   margin-bottom: 10px;
+  position: relative;
+}
+.iconosCat a .figEmpresa {
+  display: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  position: absolute;
+  top: 40px;
+  color: #000;
+  width: 150%;
+  left: -10px;
+  text-align: center;
+  font-size: 9px;
+}
+.iconosCat a:hover > figcaption {
+  display: block;
 }
 
 .video-responsive iframe {
@@ -1361,7 +1382,7 @@ h2 {
 @media only screen and (max-width: 1500px) {
   .descripcion .cont_img {
     border: none;
-    padding: 1% 1%;
+    padding: 4% 1%;
     border-radius: 15px;
     margin-right: 1%;
     width: 37%;
@@ -1410,7 +1431,8 @@ h2 {
 .descripcion .cont_img .descripcion_producto {
   border: 1px grey solid;
   border-radius: 15px;
-  padding: 1% 1%;
+  padding: 5% 1%;
+  text-align: center;
 }
 @media only screen and (max-width: 500px) {
   .descripcion .cont_img .descripcion_producto {
@@ -1616,6 +1638,12 @@ h2 {
   height: 150px;
   -webkit-box-shadow: 20px 4px 16px -8px #9f9f9f;
           box-shadow: 20px 4px 16px -8px #9f9f9f;
+}
+
+@media only screen and (max-width: 500px) {
+  .movil {
+    height: 300px !important;
+  }
 }
 
 .divabsolute {
@@ -1917,5 +1945,10 @@ h2 {
 
   .img {
     margin-top: 10px !important;
+    width: 300px !important;
+    height: auto !important;
   }
+}
+.titulo-formulario {
+  color: #fff;
 }

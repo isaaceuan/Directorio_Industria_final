@@ -111,7 +111,7 @@ class Categoria extends Empresa
 
     }
 
-    $this-> enviarCorreoRobert($nombre, $correo_rep);
+    // $this-> enviarCorreoRobert($nombre, $correo_rep);
     
     return $result;
 
@@ -177,6 +177,39 @@ $exito = $mail->Send(); // Envía el correo.
   }
 
 
+  public function listarResultadosByQuery($query){
+
+    $sql = "SELECT *
+    FROM empresa
+    LEFT OUTER JOIN producto as prd ON prd.id_empresa = empresa.id
+
+    WHERE empresa.miembro !=0 
+	AND prd.nombre_pruducto LIKE '%$query%'
+    OR empresa.nombre LIKE '%$query%'" ;
+
+  $ejecutar = $this -> conexion_db -> query($sql);
+
+  $result = $ejecutar -> fetch_all(MYSQLI_ASSOC);
+
+  if(empty($result)){
+    $vacio = 'vacios';
+    echo json_encode($vacio);
+
+  }else{
+
+  
+
+    echo json_encode($result);
+  }
+    
+
+      // echo json_encode($result);
+
+
+
+  }
+
+
   public function listarCatById($id){
 
     $sql = "SELECT * FROM empresa 
@@ -186,7 +219,7 @@ $exito = $mail->Send(); // Envía el correo.
 
 
     AND categorias.id_cat = '$id' 
-    WHERE empresa.miembro = 1 OR empresa.miembro = 0
+    WHERE empresa.miembro = 1 OR empresa.miembro = 0 OR empresa.miembro = 2
 
     ORDER BY empresa.miembro DESC" ;
 
@@ -219,6 +252,7 @@ $exito = $mail->Send(); // Envía el correo.
       INNER JOIN representante on representante.id_empresa = empresa.id
       WHERE empresa.miembro = 1 
       OR empresa.miembro = 0
+      OR empresa.miembro = 2
 
     ORDER BY empresa.miembro DESC" ;
 

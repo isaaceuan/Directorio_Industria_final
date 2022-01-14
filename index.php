@@ -7,6 +7,7 @@
   <!-- <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/menu_hl.css">
   <link rel="stylesheet" href="css/app.css">
+  <link rel="icon" href="src/img/favicon.png" type="image/x-icon">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -110,7 +111,7 @@
     // resultado.value= resultado.value.charAt(0).toUpperCase() + resultado.value.slice(1);
 
     // resultado.value = resultado.value.toLowerCase();
-      if(resultado.value.length >= 1 ){
+      if(resultado.value.length >= 4 ){
           let data = new FormData();
           data.append('resultado', resultado.value);
           const peticion = await fetch('class/buscador.php',{
@@ -119,9 +120,10 @@
               })
 
           const resp = await peticion.json();
-          // console.log(resp);
+          console.log(resp);
 
           let html = `<div class="list-group busc busc-2">`;
+          html +=`<a href="buscar.php?q=${resultado.value}" class="list-group-item list-group-item-action">Buscar: <b>${resultado.value}</b></a>`;
 
             if(resp.length > 0){
               for(cont of resp)
@@ -134,7 +136,7 @@
           
        }
             }else{
-              html+=  `<a href="#" class="list-group-item list-group-item-action">No hay resultados</a>`;
+              // html+=  `<a href="#" class="list-group-item list-group-item-action">No hay resultados</a>`;
             }
 
             html += `</div>`;
@@ -180,7 +182,7 @@ casita.style.setProperty('display', 'none', 'important');
            console.log(imgDestacada);
 
            empresas_dest.innerHTML+=`
-           <div class="col-lg-3 col-md-6 busquedas-destacadas__item"><a class="col" href="empresa.php?id=${imgDestacada.id}"><img  width="224" height="220"   src="src/img/${imgDestacada.logo_url}" alt=""></a></div>
+           <div class="col-lg-3 col-md-6 busquedas-destacadas__item"><a class="col d-flex justify-content-center" href="empresa.php?id=${imgDestacada.id}"><img  width="224" height="220"   src="src/img/${imgDestacada.logo_url}" alt=""></a></div>
 
            
            `;
@@ -252,6 +254,17 @@ casita.style.setProperty('display', 'none', 'important');
 
       mostrarAnuncios();
     
+</script>
+
+<script>
+
+
+const buscar = (e)=>{
+if(e.which == 13 ){
+  window.location = `buscar.php?q=${event.target.value}`;
+}
+  // window.location = `buscar.php?q=${this.value}`;
+      }
 </script>
 </body>
 </html>

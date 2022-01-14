@@ -47,7 +47,7 @@ $categorias = new Categoria();
           <h3>ANUNCIANTE <br><span>STANDARD</span></h3>
         </div>
       </div>
-      <div class="divabsolute">
+      <div class="divabsolute movil">
      <h4>Datos que podrás compartir Con tus posibles clientes</h4>
      <div class="contenidogratuito">
      <i class="bi bi-check-lg"></i>
@@ -193,32 +193,38 @@ $categorias = new Categoria();
         <label for="exampleInputEmail1" class="form-label">Datos de la empresa</label>
         <div class="col-12">
         <div class="row">
-        <div class="col-6">
+        <div class="col-xl-6 col-sm-12  mt-3">
           <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre de la empresa *" name="nombre">
           <div class="invalid-feedback">El nombre de empresa ya se encuentra registrado</div>
               <div class="valid-feedback">Nombre de empresa disponible</div>
+              <div class="alert alert-warning d-flex align-items-center alertaNombreF mt-2 mb-0" role="alert">
+  <div>
+El nombre de la empresa no puede ir vacio  
+</div>
+</div>
         </div>
-        <div class="col-6">
+        <div class="col-xl-6 col-xs-6  mt-3">
             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" >
           </div>
-          <div class="col-3 mt-3">
+          <div class="col-6 col-xl-3 mt-3">
             <select id="pais" class="form-select" aria-label="Default select example" required name="pais">
               <option selected value="0">País *</option>
                 <?php echo $empresa -> getHtmlPaises(); ?>
             </select>
             </div>
 
-            <div class="col-3 mt-3">
+            <div class="col-6 col-xl-3 mt-3">
               <input type="text" class="form-control" id="ciudad" aria-describedby="emailHelp" placeholder="Ciudad *" name="ciudad">
             </div>
+            
 
-            <div class="col-md-3 mt-3">
+            <div class="col-6 col-md-3 mt-3">
               <div class="input-group">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus"></i></span>
               <input type="number"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxLength="3" class="form-control col-2" id="lada" aria-describedby="emailHelp" placeholder="Lada *" name="lada">
               </div>
             </div>
-            <div class="col-md-3 mt-3">
+            <div class="col-6 col-md-3 mt-3">
             <div class="input-group ">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
               <input type="number" class="form-control col-2" id="tel_e" aria-describedby="emailHelp" placeholder="Teléfono *" name="tel_emp">
@@ -228,6 +234,13 @@ $categorias = new Categoria();
           
           </div>
           </div>
+          <label for="exampleInputEmail1" class="form-label mt-4">Seleccione los países donde la empresa tiene presencia (Selecciona almenos 1): *</label>
+
+          <div class="col-12 mt-2 otro otro2">
+
+            <?php echo $empresa -> getHtlmPaisesLatam(); ?>
+
+            </div>
         <!-- <div class="col-6">
           <input type="text" class="form-control" id="direccion" placeholder="Dirección *" name="direccion">
         </div> -->
@@ -269,16 +282,16 @@ $categorias = new Categoria();
             </div> -->
 
             <label for="exampleInputEmail1" class="form-label mt-4">Datos del representante:</label>
-            <div class="col-3 mt-2">
+            <div class=" col-6 col-xl-3 mt-2">
               <input type="text" class="form-control" id="nom-rep" aria-describedby="emailHelp" placeholder="Nombre *" name="nom-rep">
             </div>
-            <div class="col-3 mt-2">
-              <input type="number" class="form-control" id="tele-rep" aria-describedby="emailHelp" placeholder="Telefono *" name="tele-rep">
+            <div class="col-6 col-xl-3 mt-2">
+              <input type="number" class="form-control" id="tele-rep" aria-describedby="emailHelp" placeholder="Teléfono *" name="tele-rep">
             </div>
-            <div class="col-3 mt-2">
+            <div class="col-6 col-xl-3 mt-2">
               <input type="text" class="form-control" id="puesto-rep" aria-describedby="emailHelp" placeholder="Cargo *" name="puesto-rep">
             </div>
-            <div class="col-3 mt-2">
+            <div class="col-6 col-xl-3 mt-2">
               <input type="email" class="form-control" id="correo-rep" aria-describedby="emailHelp" placeholder="Email *" name="correo-rep">
             </div>
             <!-- <div class="col-12 mt-2">
@@ -341,22 +354,29 @@ $categorias = new Categoria();
       <div class="row">
       <h3 class="text-center titulo-formulario">Registro al directorio de la industria ANPR</h3>
         <label for="exampleInputEmail1" class="form-label">Datos de la empresa</label>
-        <div class="col-6">
+        <div class="col-12 col-xl-6">
           <input type="text" class="form-control" id="nombre1" aria-describedby="emailHelp" placeholder="Nombre de la empresa *" name="nombre">
+          <div class="invalid-feedback">El nombre de empresa ya se encuentra registrado</div>
+              <div class="valid-feedback">Nombre de empresa disponible</div>
+              <div class="alert alert-warning d-flex align-items-center alertaNombre mt-2 mb-0" role="alert">
+  <div>
+El nombre de la empresa no puede ir vacio  
+</div>
+</div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-xl-6 mt-2">
           <input type="text" class="form-control" id="direccion1" placeholder="Direccion *" name="direccion">
         </div>
-        <div class="col-6 mt-2">
+        <div class="col-12 col-xl-6 mt-2">
             <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email *" name="email">
           </div>
-          <div class="col-md-3 mt-2">
+          <div class="col-6 col-md-3 mt-2">
               <div class="input-group">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-plus"></i></span>
               <input type="number"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxLength="3" class="form-control col-2" id="lada1" aria-describedby="emailHelp" placeholder="Lada *" name="lada">
               </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-6 col-md-3 mt-2">
             <div class="input-group ">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
               <input type="number" class="form-control col-2" id="tel_e1" aria-describedby="emailHelp" placeholder="Teléfono *" name="tel_emp">
@@ -368,16 +388,16 @@ $categorias = new Categoria();
           <div class="col-12 mt-2">
           <textarea class="form-control" id="informacion1" placeholder="Informacion de la empresa *" rows="3" name="informacion"></textarea>
           </div>
-          <div class="col-6 mt-2">
+          <div class="col-12 col-xl-6 mt-2">
             <input type="text" class="form-control" id="whatsapp1" aria-describedby="WhatsApp" placeholder="WhatsApp" name="whatsapp">
           </div>
-          <div class="col-6 mt-2">
+          <div class="col-12 col-xl-6 mt-2">
             <input type="file" class="form-control" id="files1" name="file" onchange="ValidateSingleInput(this);">Logo empresa *
           </div>
-          <div class="col-6 mt-2">
+          <div class="col-12 col-xl-6 mt-2">
             <input type="url" class="form-control" id="videourl1" aria-describedby="emailHelp" placeholder="Video url" name="videourl" onchange="validarurl(this)">
           </div>
-          <div class="col-6 mt-2">
+          <div class="col-12 col-xl-6 mt-2">
             <input type="url" class="form-control" id="catalogourl1" aria-describedby="emailHelp" placeholder="Catalogo url" name="catalogourl">
           </div>
 
@@ -391,32 +411,39 @@ $categorias = new Categoria();
             <div class="col-6 mt-2">
               <input type="text" class="form-control" id="ciudad1" aria-describedby="emailHelp" placeholder="Ciudad *" name="ciudad">
             </div>
+            <label for="exampleInputEmail1" class="form-label mt-4">Seleccione los países donde la empresa tiene presencia (Selecciona almenos 1): *</label>
+
+            <div class="col-12 mt-2 otro otro2">
+
+            <?php echo $empresa -> getHtlmPaisesLatam(); ?>
+
+            </div>
             <label for="exampleInputEmail1" class="form-label mt-4">Redes sociales de la empresa:</label>
-            <div class="col-6 mt-2">
+            <div class="col-12 col-xl-6 mt-2">
               <input type="url" class="form-control" id="facebook1" aria-describedby="emailHelp" placeholder="Facebook" name="facebook">
             </div>
-            <div class="col-6 mt-2">
+            <div class="col-12 col-xl-6 mt-2">
               <input type="url" class="form-control" id="twitter1" aria-describedby="emailHelp" placeholder="Twiter" name="twitter">
             </div>
-            <div class="col-6 mt-2">
+            <div class="col-12 col-xl-6 mt-2">
               <input type="url" class="form-control" id="instagram1" aria-describedby="emailHelp" placeholder="Instagram" name="instagram">
             </div>
-            <div class="col-6 mt-2">
+            <div class="col-12 col-xl-6 mt-2">
               <input type="url" class="form-control" id="youtube1" aria-describedby="emailHelp" placeholder="Youtube" name="youtube">
             </div>
 
             <label for="exampleInputEmail1" class="form-label mt-4">Datos del represetante de la empresa:</label>
-            <div class="col-6 mt-2">
+            <div class="col-12 col-xl-6 mt-2">
               <input type="text" class="form-control" id="nom-rep1" aria-describedby="emailHelp" placeholder="Nombre *" name="nom-rep">
             </div>
-            <div class="col-6 mt-2">
-              <input type="number" class="form-control" id="tele-rep1" aria-describedby="emailHelp" placeholder="Telefono *" name="tele-rep">
+            <div class="col-12 col-xl-6 mt-2">
+              <input type="number" class="form-control" id="tele-rep1" aria-describedby="emailHelp" placeholder="Teléfono *" name="tele-rep">
             </div>
-            <div class="col-6 mt-2">
+            <div class="col-12 col-xl-6 mt-2">
               <input type="text" class="form-control" id="puesto-rep1" aria-describedby="emailHelp" placeholder="Puesto representante *" name="puesto-rep">
             </div>
-            <div class="col-6 mt-2">
-              <input type="email" class="form-control" id="correo-rep1" aria-describedby="emailHelp" placeholder="Correo-representante *" name="correo-rep">
+            <div class="col-12 col-xl-6 mt-2">
+              <input type="email" class="form-control" id="correo-rep1" aria-describedby="emailHelp" placeholder="Email *" name="correo-rep">
             </div>
             <div class="col-12 mt-2">
               <input type="url" class="form-control" id="link-rep1" aria-describedby="emailHelp" placeholder="Link Higherlogic" name="link-rep">
@@ -447,7 +474,7 @@ $categorias = new Categoria();
             </div>
             
             <div class="col-12 mt-2">
-            <input type="button" id="add_field" value="Agregar Producto" class="btn btn-success">
+            <input type="button" id="add_field" value="Agregar Producto" class="btn btn-secondary">
             </div>
             <!-- <div class="col-12 mt-2 codigo">
             <label for="exampleInputEmail1" class="form-label mt-4">Codigo de activación:</label>
@@ -506,7 +533,7 @@ $( "a" ).click(function( event ) {
 
 
 </script>
-<script>
+<!-- <script>
     const codAct =  document.getElementById('codAct')
 
 codAct.addEventListener('blur', async function(e){
@@ -540,7 +567,7 @@ const peticion2 = await fetch('../../miembros3/class/codigoActProducto.php',{
     }
 
 });
-  </script>
+  </script> -->
 
 
     <script>
@@ -596,31 +623,51 @@ const peticion2 = await fetch('../../miembros3/class/codigoActProducto.php',{
 
   <script>
     const nombreEmpresa =  document.getElementById('nombre');
+  //  alertaFree.style.display = "none !important";
+  // $(".alertaNombreF").hide();
+  $('.alertaNombreF').attr('style','display:none !important');
+
+
 
     nombreEmpresa.addEventListener('blur', async function(e){
  
 const data = new FormData();
-data.append('nombre',this.value);
+
+if(this.value==""){
+  $('.alertaNombreF').attr('style','display:block !important');
+  document.getElementById('nombre').classList.remove("is-valid")
+  document.getElementById('nombre').classList.remove('is-invalid');
+
+
+
+}else{
+  $('.alertaNombreF').attr('style','display:none !important');
+
+}
+
+
+if(this.value.length>0){
+          data.append('nombre',this.value);
 
 const peticion2 = await fetch('class/nombreEmpresa.php',{
         method: 'POST',
         body : data
     })
-    
     const resp2 = await peticion2.json();
     console.log(resp2);
-
-    if(resp2 === 'data'){
+    if(resp2 === 'data' ){
       const nombre_validar =  document.getElementById('nombre');
       document.getElementById('nombre').classList.add('is-invalid');
       document.getElementById('nombre').classList.remove("is-valid")
 
       nombre_validar.value = "";
-    }if(resp2 === 'nada'){
+    }if(resp2 === 'nada' && this.value.length >0 ){
       document.getElementById('nombre').classList.add('is-valid');
      document.getElementById('nombre').classList.remove('is-invalid');
 
     }
+        }
+
 
 });
 
@@ -634,6 +681,78 @@ function myFunction() {
 }
 
   </script>
+    <script>
+    const nombreEmpresap =  document.getElementById('nombre1');
+    $('.alertaNombre').attr('style','display:none !important');
+
+    nombreEmpresap.addEventListener('blur', async function(e){
+        const data = new FormData();
+        if(this.value==""){
+  $('.alertaNombre').attr('style','display:block !important');
+  document.getElementById('nombre1').classList.remove("is-valid")
+  document.getElementById('nombre1').classList.remove('is-invalid');
+
+
+
+}else{
+  $('.alertaNombre').attr('style','display:none !important');
+
+}
+
+
+        if(this.value.length>0){
+          data.append('nombre',this.value);
+
+const peticion2 = await fetch('class/nombreEmpresa.php',{
+        method: 'POST',
+        body : data
+    })
+    const resp2 = await peticion2.json();
+    console.log(resp2);
+    if(resp2 === 'data' ){
+      const nombre_validar =  document.getElementById('nombre1');
+      document.getElementById('nombre1').classList.add('is-invalid');
+      document.getElementById('nombre1').classList.remove("is-valid")
+
+      nombre_validar.value = "";
+    }if(resp2 === 'nada' && this.value.length >0 ){
+      document.getElementById('nombre1').classList.add('is-valid');
+     document.getElementById('nombre1').classList.remove('is-invalid');
+
+    }
+        }else{
+      //     document.getElementById('nombre1').classList.add('is-invalid');
+      // document.getElementById('nombre1').classList.remove("is-valid")
+      document.querySelector('.alertaNombre').style.display = "block";
+        }
+
+    
+ 
+      
+
+
+
+   
+
+});
+
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+let inputBuscador = document.querySelector('input.form-control.buscador-empresa.col-md-4');
+inputBuscador.style.setProperty('margin-left', '0', 'important');
+
+
+
+  </script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

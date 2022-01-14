@@ -4,6 +4,10 @@
       <a href="https://anprm.connectedcommunity.org/termsandconditions">Términos de uso</a> 
       <a class="borde" href="https://anpr.org.mx/aviso-de-privacidad/">Aviso de Privacidad</a>
        <a class="borde" href="https://anprm.connectedcommunity.org/new-page">Guía de Navegación</a>
+                <a class="borde" href="https://anpr.org.mx/miembros/portal/baja.php">Suspención de cuenta</a>
+         <a class="borde" href="https://anprm.connectedcommunity.org/contactus">Contáctanos</a>
+         <a class="borde" href="https://anprm.connectedcommunity.org/termsandconditions">Términos y condiciones</a>
+         <a class="borde" href="https://anprm.connectedcommunity.org/programa-de-compensaciones2">Programa de recompensas</a>
     </div>
   </div>
   <div class="segundo">

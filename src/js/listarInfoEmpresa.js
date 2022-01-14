@@ -28,6 +28,10 @@ const listarInfoEmpresa = async() =>{
 
      for(empresa of resp){
 
+        if(empresa.url_foto_rep == null){
+            empresa.url_foto_rep = 'desconocido.png';
+        }
+
 
        const longTextoFormat = empresa.informacion.replace(/\n/g, '<br />');
 
@@ -46,7 +50,7 @@ const listarInfoEmpresa = async() =>{
     </div>
         `;
 
-        if(empresa.miembro === "1"){
+        if(empresa.miembro == "2" || empresa.miembro == "1"){
 
             if(empresa.direccion_web == null){
 
@@ -266,7 +270,7 @@ const listarInfoEmpresa = async() =>{
            for(iconos of respIconoCat){
             contIconosCat.innerHTML +=`
            
-           <a href="categorias.php?id_cat=${iconos.id_cat}"><img src="src/img/${iconos.url_img}" alt=""></a>
+           <a href="categorias.php?id_cat=${iconos.id_cat}"><figcaption class="figEmpresa">${iconos.categoria}</figcaption><img src="src/img/${iconos.url_img}" alt=""></a>
 
            
            `;

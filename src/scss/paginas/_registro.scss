@@ -48,6 +48,13 @@
         width: 97%;
         height: 150px;
         box-shadow: 20px 4px 16px -8px #9f9f9f;    
+        
+}
+
+.movil{
+    @include para-resolucion(telefono) {  
+        height:300px !important;
+    }
 }
 .divabsolute {
     background: #222f7d;
@@ -346,5 +353,11 @@ flex-wrap: wrap !important;
 
     .img{
         margin-top: 10px !important;
+        width: 300px !important;
+        height: auto !important;
     }
+}
+
+.titulo-formulario{
+    color: #fff;
 }

@@ -118,8 +118,6 @@
   const mostrarAnuncios = async() =>{
 
     const anuncios = document.querySelector('.anunciosEmpresa');
-    const contanuncios = document.querySelector('.promociones');
-
   const data_mostrar = new FormData();
     // data_mostrar.append('mostrar', 4)
 
@@ -131,78 +129,25 @@
 
        console.log(respAnuncio);
 
-       if(respAnuncio.length>0){
-      for ( anuncioEmpresa of respAnuncio){
-        //  console.log(anuncioEmpresa);
+       for ( anuncioEmpresa of respAnuncio){
+          //  console.log(anuncioEmpresa);
 
-        anuncios.innerHTML+=`
-          <div class="col-md-12 col-lg-12 promociones__item"><a class="col-12 d-flex justify-content-center" href="empresa.php?id=${anuncioEmpresa.id_empresa}"><img src="src/img/${anuncioEmpresa.url_anuncio}" alt=""></a></div>
-         
-         `;
-         
-        
-        
-     }  
-     }else{
-      contanuncios.innerHTML=``;
-     }
-   
+          anuncios.innerHTML+=`
+            <div class="col-md-6 col-lg-6 promociones__item"><a class="col" href="empresa.php?id=${anuncioEmpresa.id_empresa}"><img src="src/img/${anuncioEmpresa.url_anuncio}" alt=""></a></div>
+           
+           `;
+           
+          
+          
+       }
       }
 
-      mostrarAnuncios();
-    
-</script>
-<script >
+   
 
-    // const cargar_info = async(resultado) =>{
-  
-    //   // resultado.value= resultado.value.charAt(0).toUpperCase() + resultado.value.slice(1);
-  
-    //   // resultado.value = resultado.value.toLowerCase();
-    //     if(resultado.value.length >= 1 ){
-    //         let data = new FormData();
-    //         data.append('resultado', resultado.value);
-    //         const peticion = await fetch('class/buscador.php',{
-    //             method: 'POST',
-    //             body: data
-    //             })
-  
-    //         const resp = await peticion.json();
-    //         // console.log(resp);
-  
-    //         let html = `<div class="list-group busc">`;
-  
-    //           if(resp.length > 0){
-    //             for(cont of resp)
-    //             {
-  
-    //               console.log(cont);
-                  
-    //               html+= `<a href="empresa.php?id=${cont.id}" class="list-group-item list-group-item-action">${cont.nombre}</a>`;
-                     
-            
-    //      }
-    //           }else{
-    //             html+=  `<a href="#" class="list-group-item list-group-item-action">No hay resultados</a>`;
-    //           }
-  
-    //           html += `</div>`;
-  
-  
-    //           document.getElementById('resultado_busqueda').innerHTML= html;
-  
-  
-  
-    //     }else{
-    //       document.getElementById('resultado_busqueda').innerHTML="";
-    //     }
-    // }
-  
-  
-  
-  
-  </script>
-<script src="url.js"></script>
+      mostrarAnuncios();
+</script>
+
+<script src="busqueda.js"></script>
 
 
 </body>

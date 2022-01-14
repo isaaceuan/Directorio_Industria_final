@@ -541,6 +541,26 @@ h3.nuestrascat {
   top: 52%;
   
 }
+
+.menu_hl h1{
+  font-size  : 10px;
+
+}
+.titulo_conexion div h1 {
+  margin-top: 15px;
+}
+
+.img-con{
+  margin-top:10px !important;
+}
+
+.ocultarcat h3{
+  font-size:15px;
+}
+
+.row.titulo_conexion {
+  text-align: center;
+}
   
 }
 
@@ -551,3 +571,4 @@ body, html{
 h3.nuestrascat {
   display: none;
 }
+
