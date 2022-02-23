@@ -232,7 +232,7 @@ h2{
         position: relative;
 
         .figEmpresa{
-            display: none;
+            display: none ;
             -webkit-transition: all 1s;
             transition: all 1s;
             position: absolute;
@@ -242,6 +242,25 @@ h2{
             left: -10px;
             text-align: center;
             font-size: 9px;    
+        }
+        @include para-resolucion(tablet-normal) {
+            .figEmpresa{
+                display: none !important ;
+                
+            } 
+        }
+        @include para-resolucion(tablet-grande) {
+            .figEmpresa{
+                display: none !important ;
+                
+            } 
+        }
+
+        @include para-resolucion(telefono) {
+            .figEmpresa{
+                display: none !important ;
+           
+            } 
         }
 
         &:hover > figcaption{
